@@ -6,8 +6,6 @@ import {
   signInWithPopup,
   User,
   NextOrObserver,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -26,7 +24,6 @@ const firebaseConfig = {
   storageBucket: "food-ranker.appspot.com",
   messagingSenderId: "494567035118",
   appId: "1:494567035118:web:439092771f68df648263ff",
-  measurementId: "G-0TXH11W03J",
 };
 
 export const firebaseApp = initializeApp(firebaseConfig);
@@ -38,6 +35,7 @@ googleProvider.setCustomParameters({
 });
 
 export const auth = getAuth();
+
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
@@ -82,24 +80,6 @@ export const createUserDocumentFromAuth = async (
   }
 
   return userSnapshot as QueryDocumentSnapshot<UserData>;
-};
-
-export const createAuthUserWithEmailAndPassword = async (
-  email: string,
-  password: string
-) => {
-  if (!email || !password) return;
-
-  return await createUserWithEmailAndPassword(auth, email, password);
-};
-
-export const signInAuthUserWithEmailAndPassword = async (
-  email: string,
-  password: string
-) => {
-  if (!email || !password) return;
-
-  return await signInWithEmailAndPassword(auth, email, password);
 };
 
 export const signOutUser = async () => await signOut(auth);
