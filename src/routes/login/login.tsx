@@ -3,7 +3,7 @@ import "./login.styles.scss";
 
 const Login = () => {
   return (
-    <div>
+    <div className="login-container">
       <SignInForm />
     </div>
   );

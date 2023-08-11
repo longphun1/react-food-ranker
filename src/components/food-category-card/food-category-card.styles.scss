@@ -1,0 +1,26 @@
+.food-card-container {
+  border: 1px solid rgb(209, 206, 206);
+  border-radius: 8px;
+  height: 300px;
+  width: 300px;
+
+  .food-category-name-container {
+    background-color: #f98b88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    .food-category-name {
+      color: white;
+      margin: 0;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

@@ -7,6 +7,9 @@ import { useDispatch } from "react-redux";
 import { login } from "./store/user/user.store";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase/firebase.utils";
+import AddFoodCategory from "./routes/add-food-category/add-food-category";
+import Navigation from "./components/navigation/navigation.component";
+import AddFood from "./routes/add-food/add-food";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,7 +35,11 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path="/addFoodCategory" element={<AddFoodCategory />} />
+            <Route path="/add/:foodName/:id" element={<AddFood />} />
+          </Route>
         </Route>
       </Routes>
     </Fragment>

@@ -19,7 +19,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <div className="sign-in-container">
       <Button
         type="button"
         buttonType={BUTTON_TYPE_CLASSES.google}

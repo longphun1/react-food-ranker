@@ -1,0 +1,43 @@
+.add-Food-Category-container {
+  margin-top: 15vh;
+  text-align: center;
+
+  .add-Food-Category-Input {
+    font-size: 20px;
+    font-weight: bold;
+    height: 25px;
+    width: 300px;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+    border-bottom: 1px solid rgb(144, 141, 141);
+    margin-bottom: 20px;
+    caret-color: transparent;
+
+    &:hover {
+      background-color: rgb(249, 139, 136, 0.7);
+      border-radius: 10px;
+    }
+  }
+
+  .error {
+    color: #f75d59;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .add-food-category-btn {
+    height: 30px;
+    width: 200px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    font-size: 18px;
+
+    &:hover {
+      background-color: #000000;
+      border: none;
+      color: white;
+    }
+  }
+}
