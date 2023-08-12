@@ -10,6 +10,7 @@ import { auth } from "./utils/firebase/firebase.utils";
 import AddFoodCategory from "./routes/add-food-category/add-food-category";
 import Navigation from "./components/navigation/navigation.component";
 import AddFood from "./routes/add-food/add-food";
+import ViewFoodPlace from "./routes/view-food-place/view-food-place";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,10 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="/addFoodCategory" element={<AddFoodCategory />} />
             <Route path="/add/:foodName/:id" element={<AddFood />} />
+            <Route
+              path="/view/:foodCategoryID/:foodPlace/:id"
+              element={<ViewFoodPlace />}
+            />
           </Route>
         </Route>
       </Routes>

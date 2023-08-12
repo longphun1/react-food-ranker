@@ -4,11 +4,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
 import { useEffect, useState } from "react";
 import { FoodCategoryCardProps } from "../shared-types";
-
-type FoodPlaces = {
-  id: string;
-  foodPlace: string;
-};
+import { FoodPlaces } from "../shared-types";
+import FoodPlace from "../food-place/food-place.component";
 
 const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
   const { id, foodName } = foodItem;
@@ -45,7 +42,7 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
       {foodPlaces.map((food) => {
         return (
           <div key={food.id}>
-            <h2 className="">{food.foodPlace}</h2>
+            <FoodPlace food={food} foodCategoryID={id} />
           </div>
         );
       })}
