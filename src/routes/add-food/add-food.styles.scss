@@ -1,22 +1,29 @@
 .add-food-container {
   margin-top: 15vh;
   text-align: center;
+  width: 60%;
+  margin-left: 20%;
 
-  .add-food-place-input {
-    font-size: 20px;
-    font-weight: bold;
-    height: 25px;
-    width: 300px;
-    padding: 5px;
-    border-radius: 3px;
-    border: none;
-    border-bottom: 1px solid rgb(144, 141, 141);
-    margin-bottom: 20px;
-    caret-color: transparent;
+  .add-food-input-container {
+    display: inline-block;
+    width: 40%;
+    margin: 20px;
+    .add-food-place-input {
+      font-size: 20px;
+      font-weight: bold;
+      height: 25px;
+      width: 100%;
+      padding: 5px;
+      border-radius: 3px;
+      border: none;
+      border-bottom: 1px solid rgb(144, 141, 141);
+      margin-bottom: 20px;
+      caret-color: transparent;
 
-    &:hover {
-      background-color: rgb(249, 139, 136, 0.7);
-      border-radius: 10px;
+      &:hover {
+        background-color: rgb(249, 139, 136, 0.7);
+        border-radius: 10px;
+      }
     }
   }
 
@@ -27,11 +34,12 @@
   }
 
   .add-food-place-btn {
+    display: inline-block;
     height: 30px;
     width: 200px;
     margin-top: 15px;
     border-radius: 10px;
-    border: 2px solid gray;
+    border: 2px solid rgb(195, 191, 191);
     font-size: 18px;
 
     &:hover {

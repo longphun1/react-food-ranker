@@ -18,17 +18,21 @@ const AddFood = () => {
   const formik = useFormik({
     initialValues: {
       foodPlace: "",
+      foodPlaceItemName: "",
       foodLocation: "",
-      foodRating: "",
+      foodRating: 0,
       foodNote: "",
+      foodRecommendationCount: 0,
     },
     validationSchema: FoodPlaceValSchema,
     onSubmit: async (values) => {
       await addDoc(FoodPlaceCollectionRef, {
         foodPlace: values.foodPlace,
+        foodPlaceItemName: values.foodPlaceItemName,
         foodLocation: values.foodLocation,
-        foodRating: values.foodRating,
+        foodRating: values.foodRating / 2,
         foodNote: values.foodNote,
+        foodRecommendationCount: values.foodRecommendationCount,
       });
       navigate("/");
     },
@@ -41,7 +45,7 @@ const AddFood = () => {
   return (
     <div className="add-food-container">
       <form onSubmit={formik.handleSubmit}>
-        <div>
+        <div className="add-food-input-container">
           {formik.touched.foodPlace && formik.errors.foodPlace ? (
             <div className="error">{formik.errors.foodPlace}</div>
           ) : null}
@@ -51,7 +55,18 @@ const AddFood = () => {
             {...formik.getFieldProps("foodPlace")}
           />
         </div>
-        <div>
+        <div className="add-food-input-container">
+          {formik.touched.foodPlaceItemName &&
+          formik.errors.foodPlaceItemName ? (
+            <div className="error">{formik.errors.foodPlaceItemName}</div>
+          ) : null}
+          <input
+            className="add-food-place-input"
+            placeholder="Item name"
+            {...formik.getFieldProps("foodPlaceItemName")}
+          />
+        </div>
+        <div className="add-food-input-container">
           {formik.touched.foodLocation && formik.errors.foodLocation ? (
             <div className="error">{formik.errors.foodLocation}</div>
           ) : null}
@@ -73,7 +88,7 @@ const AddFood = () => {
             />
           </StandaloneSearchBox>
         </div>
-        <div>
+        <div className="add-food-input-container">
           {formik.touched.foodRating && formik.errors.foodRating ? (
             <div className="error">{formik.errors.foodRating}</div>
           ) : null}
@@ -84,16 +99,18 @@ const AddFood = () => {
             {...formik.getFieldProps("foodRating")}
           />
         </div>
-        <div>
+        <div className="add-food-input-container">
           <input
             className="add-food-place-input"
             placeholder="Note (optional)"
             {...formik.getFieldProps("foodNote")}
           />
         </div>
-        <button className="add-food-place-btn" type="submit">
-          Submit
-        </button>
+        <div>
+          <button className="add-food-place-btn" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

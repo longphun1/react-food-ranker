@@ -1,0 +1,12 @@
+.food-place-link-container {
+  .food-place-link {
+    color: #666362;
+    margin-right: 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    .rating {
+      margin-left: 5px;
+    }
+  }
+}
