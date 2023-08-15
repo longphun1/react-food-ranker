@@ -23,12 +23,21 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
           ...doc.data(),
           id: doc.id,
           foodPlace: doc.data().foodPlace,
+          foodPlaceItemName: doc.data().foodPlaceItemName,
+          foodPlaceItemPrice: doc.data().foodPlaceItemPrice,
+          foodRating: doc.data().foodRating,
+          foodAddress: doc.data().foodAddress,
+          foodNote: doc.data().foodNote,
         }))
       );
     };
 
     getFoodPlaces();
   }, []);
+
+  const viewFoodCategory = () => {
+    navigate(`/view/${foodName}/${id}/all`);
+  };
 
   const goToAdd = () => {
     navigate(`/add/${foodName}/${id}`);
@@ -38,6 +47,9 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
     <div className="food-card-container">
       <div className="food-category-name-container">
         <h2 className="food-category-name">{foodName}</h2>
+        <button className="view-food-category-btn" onClick={viewFoodCategory}>
+          View
+        </button>
       </div>
       {foodPlaces.map((food) => {
         return (

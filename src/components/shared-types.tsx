@@ -10,16 +10,17 @@ export type FoodCategoryCard = {
 export type FoodPlaces = {
   id: string;
   foodPlace: string;
-  foodPlaceItemName?: string;
-  foodLocation?: string;
-  foodRating?: number;
+  foodPlaceItemName: string;
+  foodPlaceItemPrice: number;
+  foodAddress: string;
+  foodRating: number;
   foodNote?: string;
   foodRecommendationCount?: number;
 };
 
 export type FoodPlaceProps = {
   food: FoodPlaces;
-  foodCategoryID: string;
+  foodCategoryID: string | undefined;
 };
 
 export type GoogleGeoCodeResponse = {

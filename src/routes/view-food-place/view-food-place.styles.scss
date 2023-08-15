@@ -20,15 +20,28 @@
 
     .view-place-info {
       color: #666362;
+      font-size: 22px;
       text-transform: capitalize;
 
-      .food-place-item-name {
-        margin-left: 5px;
-        text-transform: lowercase;
-      }
-
       .rating {
-        margin-left: 30px;
+        margin-left: 20px;
+      }
+    }
+
+    .food-address {
+      color: #666362;
+    }
+  }
+
+  .food-item-name-and-price-container {
+    color: #817d7c;
+    margin-top: -20px;
+
+    .food-place-item-name {
+      font-size: 18px;
+
+      .food-item-price {
+        margin-left: 5px;
       }
     }
   }

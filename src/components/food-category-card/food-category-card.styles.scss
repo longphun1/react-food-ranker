@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     height: 80px;
-    width: 100%;
+    width: 300px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-transform: lowercase;
@@ -21,6 +21,24 @@
 
       &::first-letter {
         text-transform: uppercase;
+      }
+    }
+
+    .view-food-category-btn {
+      display: none;
+    }
+
+    &:hover {
+      .view-food-category-btn {
+        background-color: #4c4646;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-size: 22px;
+        height: 80px;
+        position: absolute;
+        width: 300px;
       }
     }
   }

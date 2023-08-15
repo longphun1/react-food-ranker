@@ -26,7 +26,10 @@ const ViewFoodPlace = () => {
           ...doc.data(),
           id: doc.id,
           foodPlace: doc.data().foodPlace,
-          foodLocation: doc.data().foodLocation,
+          foodPlaceItemName: doc.data().foodPlaceItemName,
+          foodPlaceItemPrice: doc.data().foodPlaceItemPrice,
+          foodRating: doc.data().foodRating,
+          foodAddress: doc.data().foodAddress,
           foodNote: doc.data().foodNote,
         }))
       );
@@ -36,7 +39,7 @@ const ViewFoodPlace = () => {
 
   foodPlace.forEach((foodPlace) => {
     if (foodPlace.id === id) {
-      address = foodPlace.foodLocation!;
+      address = foodPlace.foodAddress!;
     }
   });
 
@@ -87,17 +90,22 @@ const ViewFoodPlace = () => {
               <div className="view-place-container">
                 <div id="google-map"></div>
                 <div className="view-place-info-container">
-                  <h3 className="view-place-info">
-                    {place.foodPlace},{" "}
-                    <span className="food-place-item-name">
-                      {place.foodPlaceItemName}
-                    </span>{" "}
+                  <h2 className="view-place-info">
+                    {place.foodPlace}
                     <span className="rating">
-                      {place.foodRating}/5{" "}
+                      {place.foodRating / 2}/5{" "}
                       <span className="stars">&#9733;</span>
                     </span>
+                  </h2>
+                  <h3 className="food-address">{place.foodAddress}</h3>
+                </div>
+                <div className="food-item-name-and-price-container">
+                  <h3 className="food-place-item-name">
+                    {place.foodPlaceItemName}{" "}
+                    <span className="food-item-price">
+                      &#36;{place.foodPlaceItemPrice}
+                    </span>
                   </h3>
-                  <h3 className="view-place-info">{place.foodLocation}</h3>
                 </div>
                 <div className="recommendation-container">
                   <h3 className="recommend-text">

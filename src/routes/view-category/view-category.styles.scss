@@ -1,0 +1,48 @@
+.view-category-container {
+  text-align: center;
+
+  .view-category-sub-container {
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 8vh;
+    width: 500px;
+    height: 600px;
+
+    .foodName-title {
+      background-color: #f98b88;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      color: white;
+      font-size: 30px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .view-category-place:nth-child(odd) {
+    background-color: #4c4646;
+
+    .food-place-link {
+      color: #a29c9c;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .food-place-link:hover {
+      color: white;
+    }
+
+    .update-delete-btn {
+      background-color: #7b7676;
+
+      &:hover {
+        background-color: white;
+        color: #4c4646;
+      }
+    }
+  }
+}

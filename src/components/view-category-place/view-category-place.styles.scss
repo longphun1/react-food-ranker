@@ -1,0 +1,38 @@
+.view-category-place-container {
+  display: flex;
+  padding: 0 20px 0 20px;
+  justify-content: space-between;
+
+  .food-place-link {
+    color: #666362;
+    font-size: 22px;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:hover {
+      color: #f98b88;
+    }
+
+    .rating {
+      margin-left: 10px;
+    }
+  }
+
+  .btns-container {
+    .update-delete-btn {
+      background-color: #666362;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      height: 35px;
+      width: 70px;
+      margin: 18px 0px 0px 12px;
+
+      &:hover {
+        background-color: #4c4646;
+      }
+    }
+  }
+}

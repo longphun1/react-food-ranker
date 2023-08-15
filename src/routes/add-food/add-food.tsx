@@ -19,8 +19,9 @@ const AddFood = () => {
     initialValues: {
       foodPlace: "",
       foodPlaceItemName: "",
-      foodLocation: "",
-      foodRating: 0,
+      foodPlaceItemPrice: "",
+      foodAddress: "",
+      foodRating: "",
       foodNote: "",
       foodRecommendationCount: 0,
     },
@@ -29,8 +30,9 @@ const AddFood = () => {
       await addDoc(FoodPlaceCollectionRef, {
         foodPlace: values.foodPlace,
         foodPlaceItemName: values.foodPlaceItemName,
-        foodLocation: values.foodLocation,
-        foodRating: values.foodRating / 2,
+        foodPlaceItemPrice: values.foodPlaceItemPrice,
+        foodAddress: values.foodAddress,
+        foodRating: values.foodRating,
         foodNote: values.foodNote,
         foodRecommendationCount: values.foodRecommendationCount,
       });
@@ -38,8 +40,8 @@ const AddFood = () => {
     },
   });
 
-  const onPlaceSelect = (place: any) => {
-    formik.setFieldValue("foodLocation", place.formatted_address);
+  const onPlaceSelect = (place: google.maps.places.PlaceResult) => {
+    formik.setFieldValue("foodAddress", place.formatted_address);
   };
 
   return (
@@ -67,8 +69,20 @@ const AddFood = () => {
           />
         </div>
         <div className="add-food-input-container">
-          {formik.touched.foodLocation && formik.errors.foodLocation ? (
-            <div className="error">{formik.errors.foodLocation}</div>
+          {formik.touched.foodPlaceItemPrice &&
+          formik.errors.foodPlaceItemPrice ? (
+            <div className="error">{formik.errors.foodPlaceItemPrice}</div>
+          ) : null}
+          <input
+            className="add-food-place-input"
+            placeholder="Item Price"
+            type="number"
+            {...formik.getFieldProps("foodPlaceItemPrice")}
+          />
+        </div>
+        <div className="add-food-input-container">
+          {formik.touched.foodAddress && formik.errors.foodAddress ? (
+            <div className="error">{formik.errors.foodAddress}</div>
           ) : null}
           <StandaloneSearchBox
             onLoad={(searchBox) => {
@@ -83,8 +97,8 @@ const AddFood = () => {
             <input
               type="text"
               className="add-food-place-input"
-              placeholder="Enter a location"
-              {...formik.getFieldProps("foodLocation")}
+              placeholder="Enter an address"
+              {...formik.getFieldProps("foodAddress")}
             />
           </StandaloneSearchBox>
         </div>

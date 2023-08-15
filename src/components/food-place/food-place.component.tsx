@@ -14,7 +14,7 @@ const FoodPlace = ({ food, foodCategoryID }: FoodPlaceProps) => {
   return (
     <div className="food-place-link-container">
       <h3 className="food-place-link" onClick={goToViewFood}>
-        {foodPlace} <span className="rating">{foodRating} &#9733;</span>
+        {foodPlace} <span className="rating">{foodRating / 2} &#9733;</span>
       </h3>
     </div>
   );
