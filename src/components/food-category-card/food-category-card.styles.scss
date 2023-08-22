@@ -3,6 +3,7 @@
   border-radius: 8px;
   height: 300px;
   width: 300px;
+  position: relative;
 
   .food-category-name-container {
     background-color: #f98b88;
@@ -40,6 +41,33 @@
         position: absolute;
         width: 300px;
       }
+    }
+  }
+
+  .no-collection {
+    color: #9b9191;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 40px 0 30px 0;
+  }
+
+  .go-to-add-btn {
+    background-color: white;
+    border: 1px solid #a3a1a1;
+    color: #848482;
+    cursor: pointer;
+    font-weight: bold;
+    width: 80px;
+    height: 24px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 15px;
+    margin-left: -39px;
+
+    &:hover {
+      background-color: #4c4646;
+      border: none;
+      color: white;
     }
   }
 }

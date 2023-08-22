@@ -1,43 +1,53 @@
 .add-Food-Category-container {
-  margin-top: 15vh;
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 65vh;
+  width: 100%;
   text-align: center;
+  padding: 8vh 50px 0 50px;
+  margin-left: -50px;
 
-  .add-Food-Category-Input {
-    font-size: 20px;
-    font-weight: bold;
-    height: 25px;
-    width: 300px;
-    padding: 5px;
-    border-radius: 3px;
-    border: none;
-    border-bottom: 1px solid rgb(144, 141, 141);
-    margin-bottom: 20px;
-    caret-color: transparent;
+  .add-food-category-sub-container {
+    padding-top: 7vh;
 
-    &:hover {
-      background-color: rgb(249, 139, 136, 0.7);
-      border-radius: 10px;
-    }
-  }
-
-  .error {
-    color: #f75d59;
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
-
-  .add-food-category-btn {
-    height: 30px;
-    width: 200px;
-    margin-top: 15px;
-    border-radius: 10px;
-    border: 2px solid gray;
-    font-size: 18px;
-
-    &:hover {
-      background-color: #484444;
+    .add-Food-Category-Input {
+      font-size: 20px;
+      font-weight: bold;
+      height: 25px;
+      width: 300px;
+      padding: 5px;
+      border-radius: 3px;
       border: none;
-      color: white;
+      border-bottom: 1px solid rgb(144, 141, 141);
+      margin-bottom: 20px;
+      caret-color: transparent;
+
+      &:hover {
+        background-color: rgb(249, 139, 136, 0.7);
+        border-radius: 10px;
+      }
+    }
+
+    .error {
+      color: #f75d59;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .add-food-category-btn {
+      height: 30px;
+      width: 200px;
+      margin-top: 25px;
+      border-radius: 10px;
+      border: 2px solid gray;
+      font-size: 18px;
+
+      &:hover {
+        background-color: #484444;
+        border: none;
+        color: white;
+      }
     }
   }
 }

@@ -4,7 +4,11 @@ import "./view-category-place.styles.scss";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
 
-const ViewCategoryPlace = ({ food, foodCategoryID }: FoodPlaceProps) => {
+const ViewCategoryPlace = ({
+  food,
+  foodCategoryID,
+  foodName,
+}: FoodPlaceProps) => {
   const { id, foodPlace, foodRating } = food;
 
   const navigate = useNavigate();
@@ -19,13 +23,19 @@ const ViewCategoryPlace = ({ food, foodCategoryID }: FoodPlaceProps) => {
     navigate(`/view/${foodCategoryID}/${foodPlace}/${id}`);
   };
 
+  const goToUpdateFood = () => {
+    navigate(`/update/${foodName}/${foodCategoryID}/${foodPlace}/${id}`);
+  };
+
   return (
     <div className="view-category-place-container">
       <h3 className="food-place-link" onClick={goToViewFood}>
         {foodPlace} <span className="rating">{foodRating / 2} &#9733;</span>
       </h3>
       <div className="btns-container">
-        <button className="update-delete-btn">Update</button>
+        <button className="update-delete-btn" onClick={goToUpdateFood}>
+          Update
+        </button>
         <button
           className="update-delete-btn"
           onClick={() => {

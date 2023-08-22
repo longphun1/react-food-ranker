@@ -1,9 +1,13 @@
 .food-place-link-container {
   .food-place-link {
     color: #666362;
-    margin-right: 10px;
+    margin: 15px 10px 15px 0;
     text-transform: capitalize;
     cursor: pointer;
+
+    &:hover {
+      color: #f98b88;
+    }
 
     .rating {
       margin-left: 5px;

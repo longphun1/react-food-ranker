@@ -1,47 +1,79 @@
 .view-category-container {
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   text-align: center;
+  min-height: 70vh;
+  width: 100%;
+  padding: 8vh 50px 0 50px;
+  margin-left: -50px;
 
   .view-category-sub-container {
-    border-radius: 15px;
-    margin: 0 auto;
-    margin-top: 8vh;
-    width: 500px;
-    height: 600px;
+    .view-category-box {
+      border-radius: 15px;
+      margin: 0 auto;
+      margin-top: 40px;
+      width: 500px;
+      min-height: 600px;
 
-    .foodName-title {
-      background-color: #f98b88;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      color: white;
-      font-size: 30px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .view-category-place:nth-child(odd) {
-    background-color: #4c4646;
-
-    .food-place-link {
-      color: #a29c9c;
-
-      &:hover {
+      .foodName-title {
+        background-color: #f98b88;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
         color: white;
+        font-size: 30px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .no-collection {
+        color: #9b9191;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 80px 0 80px 0;
+      }
+
+      .go-to-add-btn {
+        background-color: white;
+        border: 1px solid black;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100px;
+        height: 28px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #4c4646;
+          border: none;
+          color: white;
+        }
       }
     }
 
-    .food-place-link:hover {
-      color: white;
-    }
+    .view-category-place:nth-child(odd) {
+      background-color: #4c4646;
 
-    .update-delete-btn {
-      background-color: #7b7676;
+      .food-place-link {
+        color: #a29c9c;
 
-      &:hover {
-        background-color: white;
-        color: #4c4646;
+        &:hover {
+          color: white;
+        }
+      }
+
+      .food-place-link:hover {
+        color: white;
+      }
+
+      .update-delete-btn {
+        background-color: #7b7676;
+
+        &:hover {
+          background-color: white;
+          color: #4c4646;
+        }
       }
     }
   }

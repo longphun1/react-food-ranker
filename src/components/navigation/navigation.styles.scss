@@ -1,7 +1,12 @@
 .navigation-container {
-  margin-top: 5%;
+  margin-top: 2%;
   height: 100px;
   width: 100%;
+  background-color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 4% 50px 0 50px;
+  margin-left: -50px;
 
   .logo-container {
     display: inline-block;

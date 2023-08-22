@@ -2,7 +2,7 @@ import "./food-category-card.styles.scss";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { FoodCategoryCardProps } from "../shared-types";
 import { FoodPlaces } from "../shared-types";
 import FoodPlace from "../food-place/food-place.component";
@@ -14,6 +14,10 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
   const navigate = useNavigate();
 
   const foodPlacesRef = collection(db, `foodCategory/${id}/places`);
+
+  const sortFoodPlacesBasedOnRating = [...foodPlaces].sort(
+    (a, b) => b.foodRating - a.foodRating
+  );
 
   useEffect(() => {
     const getFoodPlaces = async () => {
@@ -51,14 +55,22 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
           View
         </button>
       </div>
-      {foodPlaces.map((food) => {
-        return (
-          <div key={food.id}>
-            <FoodPlace food={food} foodCategoryID={id} />
-          </div>
-        );
-      })}
-      <button onClick={goToAdd}>ADD</button>
+      {foodPlaces.length ? (
+        <Fragment>
+          {sortFoodPlacesBasedOnRating.slice(0, 4).map((food) => {
+            return (
+              <div key={food.id}>
+                <FoodPlace food={food} foodCategoryID={id} />
+              </div>
+            );
+          })}
+        </Fragment>
+      ) : (
+        <p className="no-collection">No Collection</p>
+      )}
+      <button className="go-to-add-btn" onClick={goToAdd}>
+        ADD
+      </button>
     </div>
   );
 };

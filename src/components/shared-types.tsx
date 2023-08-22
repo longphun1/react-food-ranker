@@ -21,6 +21,7 @@ export type FoodPlaces = {
 export type FoodPlaceProps = {
   food: FoodPlaces;
   foodCategoryID: string | undefined;
+  foodName?: string;
 };
 
 export type GoogleGeoCodeResponse = {

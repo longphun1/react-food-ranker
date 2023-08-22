@@ -12,6 +12,7 @@ import Navigation from "./components/navigation/navigation.component";
 import AddFood from "./routes/add-food/add-food";
 import ViewFoodPlace from "./routes/view-food-place/view-food-place";
 import ViewCategory from "./routes/view-category/view-category";
+import UpdateFoodPlace from "./routes/update-food-place/update-food-place";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,10 @@ const App = () => {
             <Route
               path="/view/:foodCategoryID/:foodPlace/:id"
               element={<ViewFoodPlace />}
+            />
+            <Route
+              path="/update/:foodName/:foodCategoryID/:foodPlace/:id"
+              element={<UpdateFoodPlace />}
             />
             <Route path="/view/:foodName/:id/all" element={<ViewCategory />} />
           </Route>

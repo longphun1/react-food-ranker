@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
 import { FoodPlaces } from "../../components/shared-types";
@@ -12,7 +12,13 @@ const ViewCategory = () => {
   const { id } = useParams();
   const { foodName } = useParams();
 
+  const navigate = useNavigate();
+
   const foodPlacesRef = collection(db, `foodCategory/${id}/places`);
+
+  const sortFoodPlacesBasedOnRating = [...foodPlaces].sort(
+    (a, b) => b.foodRating - a.foodRating
+  );
 
   useEffect(() => {
     const getFoodPlaces = async () => {
@@ -34,17 +40,47 @@ const ViewCategory = () => {
     getFoodPlaces();
   }, []);
 
+  const goBackHandler = () => {
+    navigate("/");
+  };
+
+  const goToAdd = () => {
+    navigate(`/add/${foodName}/${id}`);
+  };
+
   return (
     <div className="view-category-container">
+      <div className="go-back-btn-container">
+        <span className="go-back-btn" onClick={goBackHandler}>
+          &#8617;
+        </span>
+      </div>
       <div className="view-category-sub-container">
-        <h2 className="foodName-title">{foodName}</h2>
-        {foodPlaces.map((food) => {
-          return (
-            <div className="view-category-place" key={food.id}>
-              <ViewCategoryPlace food={food} foodCategoryID={id} />
+        <div className="view-category-box">
+          <span className="foodName-title">{foodName}</span>
+          {foodPlaces.length ? (
+            <Fragment>
+              {sortFoodPlacesBasedOnRating.map((food) => {
+                return (
+                  <div className="view-category-place" key={food.id}>
+                    <ViewCategoryPlace
+                      food={food}
+                      foodCategoryID={id}
+                      foodName={foodName}
+                    />
+                  </div>
+                );
+              })}
+            </Fragment>
+          ) : (
+            <div>
+              <p className="no-collection">You have no collection</p>
+              <button className="go-to-add-btn" onClick={goToAdd}>
+                ADD
+              </button>
             </div>
-          );
-        })}
+          )}
+        </div>
       </div>
     </div>
   );

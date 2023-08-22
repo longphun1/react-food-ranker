@@ -1,6 +1,11 @@
 .view-place-container {
-  margin-left: 5%;
-  width: 90%;
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 70vh;
+  margin: -50px;
+  padding: 6% 50px 0 50px;
+  width: 100%;
 
   #google-map {
     width: 100%;

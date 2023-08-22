@@ -1,5 +1,5 @@
 .add-food-container {
-  margin-top: 15vh;
+  margin-top: 7vh;
   text-align: center;
   width: 60%;
   margin-left: 20%;
@@ -46,6 +46,22 @@
       background-color: #484444;
       border: none;
       color: white;
+    }
+  }
+}
+
+.go-back-btn-container {
+  margin-left: 80px;
+
+  .go-back-btn {
+    cursor: pointer;
+    color: #666362;
+    font-size: 45px;
+    font-weight: bold;
+    float: left;
+
+    &:hover {
+      color: #f98b88;
     }
   }
 }

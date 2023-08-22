@@ -3,7 +3,9 @@ body {
   font-family: "Lato";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 20px 20%;
+  padding: 20px 20vw;
+  background-image: url("./assets/indoapr171.jpg");
+  background-size: cover;
 }
 
 code {

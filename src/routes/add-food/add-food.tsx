@@ -27,10 +27,12 @@ const AddFood = () => {
     },
     validationSchema: FoodPlaceValSchema,
     onSubmit: async (values) => {
+      const formattedPrice = parseFloat(values.foodPlaceItemPrice).toFixed(2);
+
       await addDoc(FoodPlaceCollectionRef, {
         foodPlace: values.foodPlace,
         foodPlaceItemName: values.foodPlaceItemName,
-        foodPlaceItemPrice: values.foodPlaceItemPrice,
+        foodPlaceItemPrice: formattedPrice,
         foodAddress: values.foodAddress,
         foodRating: values.foodRating,
         foodNote: values.foodNote,

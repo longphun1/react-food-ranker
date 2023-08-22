@@ -38,7 +38,7 @@ const Home = () => {
       <div className="food-categories-container">
         {foodCategories.map((food) => {
           return (
-            <div key={food.id}>
+            <div key={food.id} className="something">
               <FoodCategoryCard foodItem={food} />
             </div>
           );

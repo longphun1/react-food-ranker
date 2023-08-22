@@ -29,9 +29,18 @@ const AddFoodCategory = () => {
     },
   });
 
+  const goBackHandler = () => {
+    navigate("/");
+  };
+
   return (
     <div className="add-Food-Category-container">
-      <div>
+      <div className="go-back-btn-container">
+        <span className="go-back-btn" onClick={goBackHandler}>
+          &#8617;
+        </span>
+      </div>
+      <div className="add-food-category-sub-container">
         <form onSubmit={formik.handleSubmit}>
           <div>
             {formik.touched.foodName && formik.errors.foodName ? (
