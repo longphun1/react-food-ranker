@@ -63,10 +63,16 @@ const ViewFoodPlace = () => {
         }
       );
 
-      new google.maps.Marker({
+      const marker = new google.maps.Marker({
         map: map,
         position: coordinates,
         title: "Uluru",
+      });
+
+      marker.addListener("click", () => {
+        const mapsUrl = `https://www.google.com/maps/place/${coordinates.lat},${coordinates.lng}`;
+
+        window.open(mapsUrl, "_blank");
       });
     })
     .catch((err) => {

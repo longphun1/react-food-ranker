@@ -24,7 +24,12 @@ const Navigation = () => {
         <Link to="/" className="logo-container">
           <img
             className="logo"
-            src="https://i.imgur.com/xkHy6AY.png"
+            src="https://i.imgur.com/0e8nvEL.png"
+            alt="logo"
+          />
+          <img
+            className="logo1"
+            src="https://i.imgur.com/aIz2uJE.png"
             alt="logo"
           />
         </Link>

@@ -1,0 +1,30 @@
+.weeklies-search-box {
+  background-color: #ebf4fa;
+  border: 1px solid #c9dfec;
+
+  border-radius: 5px;
+  color: #4c4646;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  height: 30px;
+  line-height: 5px;
+  margin-left: 80%;
+}
+
+input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  color: red;
+  content: URL();
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #4c4646;
+}
+
+// @media only screen and (max-width: 1600px) {
+//   .weeklies-search-box {
+//     margin-left: 83%;
+//   }
+// }
