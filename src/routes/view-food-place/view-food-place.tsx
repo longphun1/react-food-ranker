@@ -53,7 +53,9 @@ const ViewFoodPlace = () => {
       if (response.data.status !== "OK") {
         throw new Error("Could not fetch location");
       }
+
       const coordinates = response.data.results[0].geometry.location;
+      const placeId = response.data.results[0].place_id;
 
       const map = new google.maps.Map(
         document.getElementById("google-map") as HTMLElement,
@@ -62,6 +64,33 @@ const ViewFoodPlace = () => {
           zoom: 16,
         }
       );
+
+      const placeService = new google.maps.places.PlacesService(map);
+
+      const request = {
+        placeId: placeId,
+        fields: [
+          "name",
+          "formatted_address",
+          "place_id",
+          "geometry",
+          "opening_hours",
+          "formatted_phone_number",
+          "website",
+          "rating",
+        ],
+      };
+
+      placeService.getDetails(request, (place, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          const placeDetail = place!.opening_hours;
+
+          // Display the opening hours on your page
+          console.log(placeDetail);
+        } else {
+          console.error("Place details request failed:", status);
+        }
+      });
 
       const marker = new google.maps.Marker({
         map: map,

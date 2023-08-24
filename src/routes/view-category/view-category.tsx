@@ -9,11 +9,12 @@ import Pagination from "../../components/pagination/pagination.component";
 import SearchBox from "../../components/search-box/search-box.component";
 
 const ViewCategory = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostPerPage] = useState(5);
   const [foodPlaces, setFoodPlaces] = useState<FoodPlaces[]>([]);
   const [searchField, setSearchField] = useState("");
   const [filteredPlaces, setFilterPlaces] = useState(foodPlaces);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostPerPage] = useState(5);
+  const [optionFilter, setOptionFilter] = useState("top-rated");
 
   const { id } = useParams();
   const { foodName } = useParams();
@@ -21,10 +22,6 @@ const ViewCategory = () => {
   const navigate = useNavigate();
 
   const foodPlacesRef = collection(db, `foodCategory/${id}/places`);
-
-  const sortFoodPlacesBasedOnRating = [...filteredPlaces].sort(
-    (a, b) => b.foodRating - a.foodRating
-  );
 
   useEffect(() => {
     const getFoodPlaces = async () => {
@@ -46,25 +43,53 @@ const ViewCategory = () => {
     getFoodPlaces();
   }, []);
 
-  useEffect(() => {
-    const newFilteredPlaces = foodPlaces.filter((food) => {
-      return food.foodPlace.toLocaleLowerCase().includes(searchField);
-    });
-
-    setFilterPlaces(newFilteredPlaces);
-  }, [foodPlaces, searchField]);
-
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
 
+  const applyFiltersAndSort = (optionValue: string) => {
+    let filteredAndSortedPlaces = [...foodPlaces];
+
+    if (searchField) {
+      filteredAndSortedPlaces = filteredAndSortedPlaces.filter((food) =>
+        food.foodPlace.toLocaleLowerCase().includes(searchField)
+      );
+    }
+
+    switch (optionValue) {
+      case "top-rated":
+        return filteredAndSortedPlaces.sort(
+          (a, b) => b.foodRating - a.foodRating
+        );
+      case "alphabetical":
+        return filteredAndSortedPlaces.sort((a, b) =>
+          a.foodPlace.localeCompare(b.foodPlace)
+        );
+      case "price":
+        return filteredAndSortedPlaces.sort(
+          (a, b) => b.foodPlaceItemPrice - a.foodPlaceItemPrice
+        );
+      default:
+        return filteredAndSortedPlaces;
+    }
+  };
+
+  const handleOptions = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const optionValue = event.target.value;
+    setOptionFilter(optionValue);
+    const filteredAndSortedPlaces = applyFiltersAndSort(optionValue);
+    setFilterPlaces(filteredAndSortedPlaces);
+  };
+
+  useEffect(() => {
+    const newFilteredPlaces = applyFiltersAndSort(optionFilter);
+    setFilterPlaces(newFilteredPlaces);
+  }, [foodPlaces, searchField]);
+
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPlaces = sortFoodPlacesBasedOnRating.slice(
-    firstPostIndex,
-    lastPostIndex
-  );
+  const currentPlaces = filteredPlaces.slice(firstPostIndex, lastPostIndex);
 
   const goBackHandler = () => {
     navigate("/");
@@ -87,6 +112,19 @@ const ViewCategory = () => {
           onChangeHandler={onSearchChange}
           placeholder="Search Places"
         />
+        <div className="option-sort-container">
+          <select className="option-sort" onChange={handleOptions}>
+            <option className="option" value="top-rated">
+              Top Rated
+            </option>
+            <option className="option" value="alphabetical">
+              A - Z
+            </option>
+            <option className="option" value="price">
+              Price
+            </option>
+          </select>
+        </div>
       </div>
       <div className="view-category-sub-container">
         <div className="view-category-box">

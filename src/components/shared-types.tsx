@@ -25,6 +25,10 @@ export type FoodPlaceProps = {
 };
 
 export type GoogleGeoCodeResponse = {
-  results: { geometry: { location: { lat: number; lng: number } } }[];
+  results: {
+    place_id: string;
+    opening_hours: any;
+    geometry: { location: { lat: number; lng: number } };
+  }[];
   status: "OK" | "ZERO_RESULTS";
 };
