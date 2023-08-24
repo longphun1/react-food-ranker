@@ -53,9 +53,9 @@ const Home = () => {
   };
 
   const lastPostIndex = currentPage * postsPerPage;
-  const firePostIndex = lastPostIndex - postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
   const currentCategories = filteredCategories.slice(
-    firePostIndex,
+    firstPostIndex,
     lastPostIndex
   );
 

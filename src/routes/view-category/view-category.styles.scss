@@ -8,13 +8,41 @@
   padding: 8vh 50px 0 50px;
   margin-left: -50px;
 
+  .go-back-btn-container {
+    margin-left: 80px;
+
+    .go-back-btn {
+      cursor: pointer;
+      color: #666362;
+      font-size: 45px;
+      font-weight: bold;
+      float: left;
+
+      &:hover {
+        color: #f98b88;
+      }
+    }
+  }
+
+  .search-box-container1 {
+    width: 80%;
+    padding: 0 50px 0 50px;
+  }
+
   .view-category-sub-container {
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
     .view-category-box {
       border-radius: 15px;
       margin: 0 auto;
-      margin-top: 40px;
       width: 500px;
       min-height: 600px;
+      text-align: center;
+      margin-bottom: 80px;
 
       .foodName-title {
         background-color: #f98b88;

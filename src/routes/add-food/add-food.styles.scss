@@ -1,67 +1,74 @@
 .add-food-container {
-  margin-top: 7vh;
+  background-color: white;
+  padding: 5vh 50px 0 50px;
   text-align: center;
-  width: 60%;
-  margin-left: 20%;
+  width: 100%;
+  height: 60vh;
+  margin-left: -50px;
 
-  .add-food-input-container {
-    display: inline-block;
-    width: 40%;
-    margin: 20px;
-    .add-food-place-input {
-      font-size: 20px;
-      font-weight: bold;
-      height: 25px;
-      width: 100%;
-      padding: 5px;
-      border-radius: 3px;
-      border: none;
-      border-bottom: 1px solid rgb(144, 141, 141);
-      margin-bottom: 20px;
-      caret-color: transparent;
+  .add-food-sub-container {
+    margin-top: 100px;
+
+    .add-food-input-container {
+      display: inline-block;
+      width: 30%;
+      margin: 2%;
+
+      .add-food-place-input {
+        font-size: 20px;
+        font-weight: bold;
+        height: 25px;
+        width: 100%;
+        padding: 5px;
+        border-radius: 3px;
+        border: none;
+        border-bottom: 1px solid rgb(144, 141, 141);
+        margin-bottom: 20px;
+        caret-color: transparent;
+
+        &:hover {
+          background-color: rgb(249, 139, 136, 0.7);
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .error {
+      color: #f75d59;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .add-food-place-btn {
+      display: inline-block;
+      height: 30px;
+      width: 200px;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: 2px solid rgb(195, 191, 191);
+      font-size: 18px;
 
       &:hover {
-        background-color: rgb(249, 139, 136, 0.7);
-        border-radius: 10px;
+        background-color: #484444;
+        border: none;
+        color: white;
       }
     }
   }
 
-  .error {
-    color: #f75d59;
-    font-size: 15px;
-    margin-bottom: 10px;
-  }
+  .go-back-btn-container {
+    margin-left: 80px;
 
-  .add-food-place-btn {
-    display: inline-block;
-    height: 30px;
-    width: 200px;
-    margin-top: 15px;
-    border-radius: 10px;
-    border: 2px solid rgb(195, 191, 191);
-    font-size: 18px;
+    .go-back-btn {
+      cursor: pointer;
+      color: #666362;
+      font-size: 45px;
+      font-weight: bold;
+      float: left;
 
-    &:hover {
-      background-color: #484444;
-      border: none;
-      color: white;
-    }
-  }
-}
-
-.go-back-btn-container {
-  margin-left: 80px;
-
-  .go-back-btn {
-    cursor: pointer;
-    color: #666362;
-    font-size: 45px;
-    font-weight: bold;
-    float: left;
-
-    &:hover {
-      color: #f98b88;
+      &:hover {
+        color: #f98b88;
+      }
     }
   }
 }

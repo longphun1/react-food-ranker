@@ -1,13 +1,19 @@
+import "./view-category.styles.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
 import { FoodPlaces } from "../../components/shared-types";
-import "./view-category.styles.scss";
 import ViewCategoryPlace from "../../components/view-category-place/view-category-place.component";
+import Pagination from "../../components/pagination/pagination.component";
+import SearchBox from "../../components/search-box/search-box.component";
 
 const ViewCategory = () => {
   const [foodPlaces, setFoodPlaces] = useState<FoodPlaces[]>([]);
+  const [searchField, setSearchField] = useState("");
+  const [filteredPlaces, setFilterPlaces] = useState(foodPlaces);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostPerPage] = useState(5);
 
   const { id } = useParams();
   const { foodName } = useParams();
@@ -16,7 +22,7 @@ const ViewCategory = () => {
 
   const foodPlacesRef = collection(db, `foodCategory/${id}/places`);
 
-  const sortFoodPlacesBasedOnRating = [...foodPlaces].sort(
+  const sortFoodPlacesBasedOnRating = [...filteredPlaces].sort(
     (a, b) => b.foodRating - a.foodRating
   );
 
@@ -40,6 +46,26 @@ const ViewCategory = () => {
     getFoodPlaces();
   }, []);
 
+  useEffect(() => {
+    const newFilteredPlaces = foodPlaces.filter((food) => {
+      return food.foodPlace.toLocaleLowerCase().includes(searchField);
+    });
+
+    setFilterPlaces(newFilteredPlaces);
+  }, [foodPlaces, searchField]);
+
+  const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPlaces = sortFoodPlacesBasedOnRating.slice(
+    firstPostIndex,
+    lastPostIndex
+  );
+
   const goBackHandler = () => {
     navigate("/");
   };
@@ -55,12 +81,19 @@ const ViewCategory = () => {
           &#8617;
         </span>
       </div>
+      <div className="search-box-container1">
+        <SearchBox
+          className="weeklies-search-box"
+          onChangeHandler={onSearchChange}
+          placeholder="Search Places"
+        />
+      </div>
       <div className="view-category-sub-container">
         <div className="view-category-box">
           <span className="foodName-title">{foodName}</span>
-          {foodPlaces.length ? (
+          {currentPlaces.length ? (
             <Fragment>
-              {sortFoodPlacesBasedOnRating.map((food) => {
+              {currentPlaces.map((food) => {
                 return (
                   <div className="view-category-place" key={food.id}>
                     <ViewCategoryPlace
@@ -81,6 +114,15 @@ const ViewCategory = () => {
             </div>
           )}
         </div>
+
+        {currentPlaces.length ? (
+          <Pagination
+            totalPosts={filteredPlaces.length}
+            postsPerPage={postsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        ) : null}
       </div>
     </div>
   );

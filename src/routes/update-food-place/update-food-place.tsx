@@ -90,13 +90,13 @@ const UpdateFoodPlace = () => {
         return (
           <Fragment key={food.id}>
             {food.id === id ? (
-              <Fragment>
+              <div className="add-food-container">
                 <div className="go-back-btn-container">
                   <span className="go-back-btn" onClick={goBackHandler}>
                     &#8617;
                   </span>
                 </div>
-                <div className="add-food-container">
+                <div className="add-food-sub-container">
                   <form onSubmit={formik.handleSubmit}>
                     <div className="add-food-input-container">
                       {formik.touched.foodPlace && formik.errors.foodPlace ? (
@@ -185,7 +185,7 @@ const UpdateFoodPlace = () => {
                     </div>
                   </form>
                 </div>
-              </Fragment>
+              </div>
             ) : null}
           </Fragment>
         );

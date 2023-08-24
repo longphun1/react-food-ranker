@@ -42,92 +42,103 @@ const AddFood = () => {
     },
   });
 
+  const goBackHandler = () => {
+    navigate("/");
+  };
+
   const onPlaceSelect = (place: google.maps.places.PlaceResult) => {
     formik.setFieldValue("foodAddress", place.formatted_address);
   };
 
   return (
     <div className="add-food-container">
-      <form onSubmit={formik.handleSubmit}>
-        <div className="add-food-input-container">
-          {formik.touched.foodPlace && formik.errors.foodPlace ? (
-            <div className="error">{formik.errors.foodPlace}</div>
-          ) : null}
-          <input
-            className="add-food-place-input"
-            placeholder="Name of place"
-            {...formik.getFieldProps("foodPlace")}
-          />
-        </div>
-        <div className="add-food-input-container">
-          {formik.touched.foodPlaceItemName &&
-          formik.errors.foodPlaceItemName ? (
-            <div className="error">{formik.errors.foodPlaceItemName}</div>
-          ) : null}
-          <input
-            className="add-food-place-input"
-            placeholder="Item name"
-            {...formik.getFieldProps("foodPlaceItemName")}
-          />
-        </div>
-        <div className="add-food-input-container">
-          {formik.touched.foodPlaceItemPrice &&
-          formik.errors.foodPlaceItemPrice ? (
-            <div className="error">{formik.errors.foodPlaceItemPrice}</div>
-          ) : null}
-          <input
-            className="add-food-place-input"
-            placeholder="Item Price"
-            type="number"
-            {...formik.getFieldProps("foodPlaceItemPrice")}
-          />
-        </div>
-        <div className="add-food-input-container">
-          {formik.touched.foodAddress && formik.errors.foodAddress ? (
-            <div className="error">{formik.errors.foodAddress}</div>
-          ) : null}
-          <StandaloneSearchBox
-            onLoad={(searchBox) => {
-              searchBox.addListener("places_changed", () => {
-                const places = searchBox.getPlaces();
-                if (places?.length === 0) return;
-                const selectedPlace = places![0];
-                onPlaceSelect(selectedPlace);
-              });
-            }}
-          >
+      <div className="go-back-btn-container">
+        <span className="go-back-btn" onClick={goBackHandler}>
+          &#8617;
+        </span>
+      </div>
+      <div className="add-food-sub-container">
+        <form onSubmit={formik.handleSubmit}>
+          <div className="add-food-input-container">
+            {formik.touched.foodPlace && formik.errors.foodPlace ? (
+              <div className="error">{formik.errors.foodPlace}</div>
+            ) : null}
             <input
-              type="text"
               className="add-food-place-input"
-              placeholder="Enter an address"
-              {...formik.getFieldProps("foodAddress")}
+              placeholder="Name of place"
+              {...formik.getFieldProps("foodPlace")}
             />
-          </StandaloneSearchBox>
-        </div>
-        <div className="add-food-input-container">
-          {formik.touched.foodRating && formik.errors.foodRating ? (
-            <div className="error">{formik.errors.foodRating}</div>
-          ) : null}
-          <input
-            className="add-food-place-input"
-            type="number"
-            placeholder="Rating (1-10)"
-            {...formik.getFieldProps("foodRating")}
-          />
-        </div>
-        <div className="add-food-input-container">
-          <input
-            className="add-food-place-input"
-            placeholder="Note (optional)"
-            {...formik.getFieldProps("foodNote")}
-          />
-        </div>
-        <div>
-          <button className="add-food-place-btn" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+          </div>
+          <div className="add-food-input-container">
+            {formik.touched.foodPlaceItemName &&
+            formik.errors.foodPlaceItemName ? (
+              <div className="error">{formik.errors.foodPlaceItemName}</div>
+            ) : null}
+            <input
+              className="add-food-place-input"
+              placeholder="Item name"
+              {...formik.getFieldProps("foodPlaceItemName")}
+            />
+          </div>
+          <div className="add-food-input-container">
+            {formik.touched.foodPlaceItemPrice &&
+            formik.errors.foodPlaceItemPrice ? (
+              <div className="error">{formik.errors.foodPlaceItemPrice}</div>
+            ) : null}
+            <input
+              className="add-food-place-input"
+              placeholder="Item Price"
+              type="number"
+              {...formik.getFieldProps("foodPlaceItemPrice")}
+            />
+          </div>
+          <div className="add-food-input-container">
+            {formik.touched.foodAddress && formik.errors.foodAddress ? (
+              <div className="error">{formik.errors.foodAddress}</div>
+            ) : null}
+            <StandaloneSearchBox
+              onLoad={(searchBox) => {
+                searchBox.addListener("places_changed", () => {
+                  const places = searchBox.getPlaces();
+                  if (places?.length === 0) return;
+                  const selectedPlace = places![0];
+                  onPlaceSelect(selectedPlace);
+                });
+              }}
+            >
+              <input
+                type="text"
+                className="add-food-place-input"
+                placeholder="Enter an address"
+                {...formik.getFieldProps("foodAddress")}
+              />
+            </StandaloneSearchBox>
+          </div>
+          <div className="add-food-input-container">
+            {formik.touched.foodRating && formik.errors.foodRating ? (
+              <div className="error">{formik.errors.foodRating}</div>
+            ) : null}
+            <input
+              className="add-food-place-input"
+              type="number"
+              placeholder="Rating (1-10)"
+              {...formik.getFieldProps("foodRating")}
+            />
+          </div>
+          <div className="add-food-input-container">
+            <input
+              className="add-food-place-input"
+              placeholder="Note (optional)"
+              {...formik.getFieldProps("foodNote")}
+            />
+          </div>
+          <div>
+            <button className="add-food-place-btn" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
