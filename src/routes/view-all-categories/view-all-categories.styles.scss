@@ -1,0 +1,27 @@
+.view-categories-container {
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 100%;
+  min-height: 69.3vh;
+  padding: 8vh 50px 0 50px;
+  margin-left: -50px;
+  display: flex;
+  justify-content: center;
+
+  .view-categories-sub-container {
+    .category-container {
+      border-radius: 5px;
+      width: 300px;
+      height: 80px;
+
+      .foodName {
+        display: inline-block;
+      }
+
+      .delete-category-btn {
+        float: right;
+      }
+    }
+  }
+}

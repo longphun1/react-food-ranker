@@ -37,22 +37,28 @@ const ViewCategories = () => {
   };
 
   return (
-    <div>
-      {categories.map((category) => {
-        return (
-          <div>
-            <h3>{category.foodName}</h3>
-            <button
-              className="delete-category-btn"
-              onClick={() => {
-                deleteCategory(category.id);
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        );
-      })}
+    <div className="view-categories-container">
+      <div className="view-categories-sub-container">
+        <h1 className="categories-title">View All Categories</h1>
+        {categories.map((category) => {
+          return (
+            <div className="category-container">
+              <h3 className="foodName">
+                {category.foodName}{" "}
+                <span className="cuisine">{category.foodCuisine}</span>
+              </h3>
+              <button
+                className="delete-category-btn"
+                onClick={() => {
+                  deleteCategory(category.id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
