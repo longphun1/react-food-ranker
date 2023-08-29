@@ -1,10 +1,11 @@
 export type FoodCategoryCardProps = {
-  foodItem: FoodCategoryCard;
+  foodItem: FoodCategory;
 };
 
-export type FoodCategoryCard = {
+export type FoodCategory = {
   id: string;
   foodName: string;
+  foodCuisine?: string;
 };
 
 export type FoodPlaces = {

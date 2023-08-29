@@ -70,6 +70,10 @@ const ViewCategory = () => {
         return filteredAndSortedPlaces.sort(
           (a, b) => b.foodPlaceItemPrice - a.foodPlaceItemPrice
         );
+      case "recommendation":
+        return filteredAndSortedPlaces.sort(
+          (a, b) => b.foodRecommendationCount! - a.foodRecommendationCount!
+        );
       default:
         return filteredAndSortedPlaces;
     }
@@ -122,6 +126,9 @@ const ViewCategory = () => {
             </option>
             <option className="option" value="price">
               Price
+            </option>
+            <option className="option" value="recommendation">
+              Recommended
             </option>
           </select>
         </div>

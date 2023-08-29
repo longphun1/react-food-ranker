@@ -18,6 +18,10 @@ const Navigation = () => {
     navigate("/addFoodCategory");
   };
 
+  const goToViewAll = () => {
+    navigate("/view/categories/all");
+  };
+
   return (
     <Fragment>
       <div className="navigation-container">
@@ -36,6 +40,9 @@ const Navigation = () => {
         <div className="nav-links-container">
           <button className="nav-links" onClick={goToAddFood}>
             Add Food
+          </button>
+          <button className="nav-links" onClick={goToViewAll}>
+            View All
           </button>
           <button className="nav-links" onClick={handlerSignOut}>
             sign out
