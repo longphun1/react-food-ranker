@@ -8,6 +8,22 @@
   padding: 5vh 50px 0 50px;
   margin-left: -50px;
 
+  .go-back-btn-container {
+    margin-left: 80px;
+
+    .go-back-btn {
+      cursor: pointer;
+      color: #666362;
+      font-size: 45px;
+      font-weight: bold;
+      float: left;
+
+      &:hover {
+        color: #f98b88;
+      }
+    }
+  }
+
   .add-food-category-sub-container {
     padding-top: 7vh;
 

@@ -14,6 +14,7 @@ import ViewFoodPlace from "./routes/view-food-place/view-food-place";
 import ViewCategory from "./routes/view-category/view-category";
 import UpdateFoodPlace from "./routes/update-food-place/update-food-place";
 import ViewCategories from "./routes/view-all-categories/view-all-categories";
+import UpdateCategory from "./routes/update-category/update-category";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ const App = () => {
             />
             <Route path="/view/:foodName/:id/all" element={<ViewCategory />} />
             <Route path="/view/categories/all" element={<ViewCategories />} />
+            <Route path="/update/:foodName/:id" element={<UpdateCategory />} />
           </Route>
         </Route>
       </Routes>

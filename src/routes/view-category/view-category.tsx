@@ -110,9 +110,9 @@ const ViewCategory = () => {
           &#8617;
         </span>
       </div>
-      <div className="search-box-container1">
+      <div className="search-box-container">
         <SearchBox
-          className="weeklies-search-box"
+          className="search-box"
           onChangeHandler={onSearchChange}
           placeholder="Search Places"
         />

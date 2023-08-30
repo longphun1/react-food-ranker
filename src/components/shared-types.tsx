@@ -5,7 +5,7 @@ export type FoodCategoryCardProps = {
 export type FoodCategory = {
   id: string;
   foodName: string;
-  foodCuisine?: string;
+  foodCuisine: string;
 };
 
 export type FoodPlaces = {

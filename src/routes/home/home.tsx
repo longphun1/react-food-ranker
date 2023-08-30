@@ -7,11 +7,7 @@ import FoodCategoryCard from "../../components/food-category-card/food-category-
 import "./home.styles.scss";
 import Pagination from "../../components/pagination/pagination.component";
 import SearchBox from "../../components/search-box/search-box.component";
-
-type FoodCategory = {
-  id: string;
-  foodName: string;
-};
+import { FoodCategory } from "../../components/shared-types";
 
 const Home = () => {
   const [foodCategories, setFoodCategories] = useState<FoodCategory[]>([]);
@@ -32,6 +28,7 @@ const Home = () => {
           ...doc.data(),
           id: doc.id,
           foodName: doc.data().foodName,
+          foodCuisine: doc.data().foodCuisine,
         }))
       );
     };
@@ -63,7 +60,7 @@ const Home = () => {
     <Fragment>
       <div className="search-box-container">
         <SearchBox
-          className="weeklies-search-box"
+          className="search-box"
           onChangeHandler={onSearchChange}
           placeholder="Search Categories"
         />

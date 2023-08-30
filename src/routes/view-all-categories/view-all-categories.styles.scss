@@ -6,21 +6,142 @@
   min-height: 69.3vh;
   padding: 8vh 50px 0 50px;
   margin-left: -50px;
-  display: flex;
-  justify-content: center;
+
+  .go-back-btn-container {
+    margin-left: 80px;
+
+    .go-back-btn {
+      cursor: pointer;
+      color: #666362;
+      font-size: 45px;
+      font-weight: bold;
+      float: left;
+
+      &:hover {
+        color: #f98b88;
+      }
+    }
+  }
+
+  .search-box-container {
+    width: 75%;
+    padding: 0 50px 0 50px;
+    display: flex;
+
+    .option-sort-container {
+      margin-left: 30px;
+
+      .option-sort {
+        height: 30px;
+        min-width: 60px;
+        border: none;
+        font-size: 17px;
+        color: #666362;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
 
   .view-categories-sub-container {
-    .category-container {
-      border-radius: 5px;
-      width: 300px;
-      height: 80px;
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
 
-      .foodName {
-        display: inline-block;
+    .all-categories-box {
+      border-radius: 15px;
+      margin: 0 auto;
+      width: 500px;
+      min-height: 650px;
+      margin-bottom: 80px;
+
+      .view-all-cats-title {
+        background-color: #f98b88;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        color: white;
+        font-size: 30px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .delete-category-btn {
-        float: right;
+      .category-container {
+        border-radius: 5px;
+        width: 90%;
+        margin: auto;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+
+        .foodName {
+          cursor: pointer;
+          color: #666362;
+          display: inline-block;
+          font-size: 22px;
+          text-transform: lowercase;
+
+          &::first-letter {
+            text-transform: uppercase;
+          }
+
+          &:hover {
+            color: #f98b88;
+          }
+
+          .cuisine {
+            color: #8a8785;
+            font-size: 18px;
+            margin-left: 8px;
+          }
+        }
+
+        .menu-btn-container {
+          margin-top: 15px;
+
+          .kabob-menu {
+            cursor: pointer;
+            color: #666362;
+            font-size: 22px;
+            position: absolute;
+          }
+
+          .btns-container {
+            display: none;
+          }
+
+          .btns-container#hidden {
+            display: inline-block;
+            margin-top: 40px;
+            margin-right: -20px;
+
+            .category-btns {
+              cursor: pointer;
+              background-color: white;
+              border: 1px solid #afacab;
+              border-radius: 4px;
+              padding: 4px 5px;
+              margin: 0 5px;
+
+              &:hover {
+                border: 1px solid #4863a0;
+                color: rgb(245, 239, 239);
+                background-color: #4863a0;
+              }
+            }
+
+            .category-btns#delete:hover {
+              border: 1px solid #36454f;
+              background-color: #36454f;
+            }
+          }
+        }
       }
     }
   }
