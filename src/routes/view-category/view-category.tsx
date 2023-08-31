@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
-import { FoodPlaces } from "../../components/shared-types";
+import { FoodPlaceType } from "../../components/shared-types";
 import ViewCategoryPlace from "../../components/view-category-place/view-category-place.component";
 import Pagination from "../../components/pagination/pagination.component";
 import SearchBox from "../../components/search-box/search-box.component";
@@ -11,7 +11,7 @@ import SearchBox from "../../components/search-box/search-box.component";
 const ViewCategory = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostPerPage] = useState(5);
-  const [foodPlaces, setFoodPlaces] = useState<FoodPlaces[]>([]);
+  const [foodPlaces, setFoodPlaces] = useState<FoodPlaceType[]>([]);
   const [searchField, setSearchField] = useState("");
   const [filteredPlaces, setFilterPlaces] = useState(foodPlaces);
   const [optionFilter, setOptionFilter] = useState("top-rated");

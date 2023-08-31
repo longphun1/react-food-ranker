@@ -4,12 +4,12 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebase/firebase.utils";
 import { useEffect, useState, Fragment } from "react";
 import { FoodCategoryCardProps } from "../shared-types";
-import { FoodPlaces } from "../shared-types";
+import { FoodPlaceType } from "../shared-types";
 import FoodPlace from "../food-place/food-place.component";
 
 const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
   const { id, foodName } = foodItem;
-  const [foodPlaces, setFoodPlaces] = useState<FoodPlaces[]>([]);
+  const [foodPlaces, setFoodPlaces] = useState<FoodPlaceType[]>([]);
 
   const navigate = useNavigate();
 

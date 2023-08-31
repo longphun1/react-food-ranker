@@ -42,12 +42,16 @@
           outline: none;
           box-shadow: none;
         }
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
 
   .view-categories-sub-container {
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
     display: flex;
     justify-content: center;

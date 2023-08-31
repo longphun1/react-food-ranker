@@ -2,7 +2,7 @@ import "./view-all-categories.styles.scss";
 import { useState, useEffect, Fragment } from "react";
 import { useFetcher, useNavigate } from "react-router-dom";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
-import { FoodCategory } from "../../components/shared-types";
+import { FoodCategoryType } from "../../components/shared-types";
 import { db } from "../../utils/firebase/firebase.utils";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/rootReducer";
@@ -10,7 +10,7 @@ import Pagination from "../../components/pagination/pagination.component";
 import SearchBox from "../../components/search-box/search-box.component";
 
 const ViewCategories = () => {
-  const [categories, setCategories] = useState<FoodCategory[]>([]);
+  const [categories, setCategories] = useState<FoodCategoryType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostPerPage] = useState(5);
   const [searchField, setSearchField] = useState("");
@@ -156,7 +156,7 @@ const ViewCategories = () => {
           <span className="view-all-cats-title">Viewing All Categories</span>
           {currentCategories.map((category, index) => {
             return (
-              <div className="category-container">
+              <div className="category-container" key={category.id}>
                 <h2
                   className="foodName"
                   onClick={() => {

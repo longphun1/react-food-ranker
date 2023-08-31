@@ -7,10 +7,10 @@ import FoodCategoryCard from "../../components/food-category-card/food-category-
 import "./home.styles.scss";
 import Pagination from "../../components/pagination/pagination.component";
 import SearchBox from "../../components/search-box/search-box.component";
-import { FoodCategory } from "../../components/shared-types";
+import { FoodCategoryType } from "../../components/shared-types";
 
 const Home = () => {
-  const [foodCategories, setFoodCategories] = useState<FoodCategory[]>([]);
+  const [foodCategories, setFoodCategories] = useState<FoodCategoryType[]>([]);
   const [searchField, setSearchField] = useState("");
   const [filteredCategories, setFilterCategories] = useState(foodCategories);
   const [currentPage, setCurrentPage] = useState(1);
