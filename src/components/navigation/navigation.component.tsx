@@ -15,7 +15,7 @@ const Navigation = () => {
   };
 
   const goToAddFood = () => {
-    navigate("/addFoodCategory");
+    navigate("/FoodCategory/add");
   };
 
   const goToViewAll = () => {

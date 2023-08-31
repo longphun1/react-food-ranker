@@ -42,7 +42,7 @@ const App = () => {
         <Route element={<PrivateRoutes />}>
           <Route path="/" element={<Navigation />}>
             <Route index element={<Home />} />
-            <Route path="/addFoodCategory" element={<AddFoodCategory />} />
+            <Route path="/FoodCategory/add" element={<AddFoodCategory />} />
             <Route path="/add/:foodName/:id" element={<AddFood />} />
             <Route
               path="/view/:foodCategoryID/:foodPlace/:id"

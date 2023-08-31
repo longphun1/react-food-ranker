@@ -23,6 +23,8 @@ export type FoodPlaceProps = {
   food: FoodPlaceType;
   foodCategoryID: string | undefined;
   foodName?: string;
+  foodLength?: number;
+  index?: number;
 };
 
 export type GoogleGeoCodeResponse = {

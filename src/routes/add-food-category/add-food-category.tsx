@@ -14,6 +14,10 @@ const AddFoodCategory = () => {
 
   const foodCollectionRef = collection(db, `userFoodCategory/${uid}/foods`);
 
+  const capitalizeString = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLocaleLowerCase();
+  };
+
   const formik = useFormik({
     initialValues: {
       foodName: "",
@@ -22,8 +26,8 @@ const AddFoodCategory = () => {
     validationSchema: FoodCategoryValSchema,
     onSubmit: async (values) => {
       await addDoc(foodCollectionRef, {
-        foodName: values.foodName,
-        foodCuisine: values.foodCuisine,
+        foodName: capitalizeString(values.foodName),
+        foodCuisine: capitalizeString(values.foodCuisine),
       });
       navigate("/");
     },

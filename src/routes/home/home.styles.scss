@@ -19,6 +19,20 @@
     column-gap: 50px;
     row-gap: 50px;
   }
+
+  .no-categories-img {
+    background-image: url("../../assets/no-categories-img.jpg");
+    background-size: contain;
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    margin: 15vh 0 25px 0;
+  }
+
+  .no-categories-text {
+    color: #a9a9a9;
+    font-size: 25px;
+  }
 }
 
 .search-box-container {
@@ -26,4 +40,8 @@
   width: 100%;
   padding: 5vh 50px 0 50px;
   margin-left: -50px;
+}
+
+.home-container#no-collection {
+  min-height: calc(75vh + 30px);
 }

@@ -138,13 +138,15 @@ const ViewCategory = () => {
           <span className="foodName-title">{foodName}</span>
           {currentPlaces.length ? (
             <Fragment>
-              {currentPlaces.map((food) => {
+              {currentPlaces.map((food, index) => {
                 return (
                   <div className="view-category-place" key={food.id}>
                     <ViewCategoryPlace
                       food={food}
                       foodCategoryID={id}
                       foodName={foodName}
+                      foodLength={foodPlaces.length}
+                      index={index}
                     />
                   </div>
                 );

@@ -15,6 +15,10 @@ const AddFood = () => {
 
   const FoodPlaceCollectionRef = collection(db, `foodCategory/${id}/places/`);
 
+  const capitalizeString = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLocaleLowerCase();
+  };
+
   const formik = useFormik({
     initialValues: {
       foodPlace: "",
@@ -30,12 +34,12 @@ const AddFood = () => {
       const formattedPrice = parseFloat(values.foodPlaceItemPrice).toFixed(2);
 
       await addDoc(FoodPlaceCollectionRef, {
-        foodPlace: values.foodPlace,
-        foodPlaceItemName: values.foodPlaceItemName,
+        foodPlace: capitalizeString(values.foodPlace),
+        foodPlaceItemName: capitalizeString(values.foodPlaceItemName),
         foodPlaceItemPrice: formattedPrice,
         foodAddress: values.foodAddress,
         foodRating: values.foodRating,
-        foodNote: values.foodNote,
+        foodNote: capitalizeString(values.foodNote),
         foodRecommendationCount: values.foodRecommendationCount,
       });
       navigate("/");

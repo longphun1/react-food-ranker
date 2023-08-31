@@ -26,10 +26,6 @@ const ViewCategories = () => {
 
   const categoriesRef = collection(db, `userFoodCategory/${uid}/foods`);
 
-  const sortCategories = categories.sort((a, b) =>
-    a.foodName.localeCompare(b.foodName)
-  );
-
   useEffect(() => {
     const getCategories = async () => {
       const data = await getDocs(categoriesRef);
@@ -127,6 +123,8 @@ const ViewCategories = () => {
     navigate(`/update/${foodName}/${id}`);
   };
 
+  const goToAdd = () => navigate("/FoodCategory/add");
+
   return (
     <div className="view-categories-container">
       <div className="go-back-btn-container">
@@ -154,51 +152,62 @@ const ViewCategories = () => {
       <div className="view-categories-sub-container">
         <div className="all-categories-box">
           <span className="view-all-cats-title">Viewing All Categories</span>
-          {currentCategories.map((category, index) => {
-            return (
-              <div className="category-container" key={category.id}>
-                <h2
-                  className="foodName"
-                  onClick={() => {
-                    goToViewCategory(category.foodName, category.id);
-                  }}
-                >
-                  {category.foodName}{" "}
-                  <span className="cuisine">({category.foodCuisine})</span>
-                </h2>
-                <div className="menu-btn-container">
-                  <div
-                    className="btns-container"
-                    id={toggleStates[index] ? "hidden" : ""}
-                  >
-                    <button
-                      className="category-btns"
-                      onClick={() =>
-                        goToUpdateCategory(category.foodName, category.id)
-                      }
-                    >
-                      Update
-                    </button>
-                    <button
-                      className="category-btns"
-                      id="delete"
+          {currentCategories.length ? (
+            <Fragment>
+              {currentCategories.map((category, index) => {
+                return (
+                  <div className="category-container" key={category.id}>
+                    <h2
+                      className="foodName"
                       onClick={() => {
-                        deleteCategory(category.id);
+                        goToViewCategory(category.foodName, category.id);
                       }}
                     >
-                      Delete
-                    </button>
+                      {category.foodName}{" "}
+                      <span className="cuisine">({category.foodCuisine})</span>
+                    </h2>
+                    <div className="menu-btn-container">
+                      <div
+                        className="btns-container"
+                        id={toggleStates[index] ? "hidden" : ""}
+                      >
+                        <button
+                          className="category-btns"
+                          onClick={() =>
+                            goToUpdateCategory(category.foodName, category.id)
+                          }
+                        >
+                          Update
+                        </button>
+                        <button
+                          className="category-btns"
+                          id="delete"
+                          onClick={() => {
+                            deleteCategory(category.id);
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                      <span
+                        className="kabob-menu"
+                        onClick={() => toggleKabobMenu(index)}
+                      >
+                        &#10247;
+                      </span>
+                    </div>
                   </div>
-                  <span
-                    className="kabob-menu"
-                    onClick={() => toggleKabobMenu(index)}
-                  >
-                    &#10247;
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </Fragment>
+          ) : (
+            <div>
+              <p className="no-collection">You have no categories</p>
+              <button className="go-to-add-btn" onClick={goToAdd}>
+                Add Food
+              </button>
+            </div>
+          )}
         </div>
         {currentCategories.length ? (
           <Pagination

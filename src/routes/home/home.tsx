@@ -20,6 +20,10 @@ const Home = () => {
 
   const foodCategoriesRef = collection(db, `userFoodCategory/${uid}/foods`);
 
+  const sortCategoriesByAlphabet = [...filteredCategories].sort((a, b) =>
+    a.foodName.localeCompare(b.foodName)
+  );
+
   useEffect(() => {
     const getFoodCategories = async () => {
       const data = await getDocs(foodCategoriesRef);
@@ -51,37 +55,48 @@ const Home = () => {
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentCategories = filteredCategories.slice(
+  const currentCategories = sortCategoriesByAlphabet.slice(
     firstPostIndex,
     lastPostIndex
   );
 
   return (
     <Fragment>
-      <div className="search-box-container">
-        <SearchBox
-          className="search-box"
-          onChangeHandler={onSearchChange}
-          placeholder="Search Categories"
-        />
-      </div>
-      <div className="home-container">
-        <div className="food-categories-container">
-          {currentCategories.map((food) => {
-            return (
-              <div key={food.id} className="something">
-                <FoodCategoryCard foodItem={food} />
-              </div>
-            );
-          })}
+      {currentCategories.length ? (
+        <Fragment>
+          <div className="search-box-container">
+            <SearchBox
+              className="search-box"
+              onChangeHandler={onSearchChange}
+              placeholder="Search Categories"
+            />
+          </div>
+          <div className="home-container">
+            <div className="food-categories-container">
+              {currentCategories.map((food) => {
+                return (
+                  <div key={food.id} className="something">
+                    <FoodCategoryCard foodItem={food} />
+                  </div>
+                );
+              })}
+            </div>
+            <Pagination
+              totalPosts={filteredCategories.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
+          </div>{" "}
+        </Fragment>
+      ) : (
+        <div className="home-container" id="no-collection">
+          <div>
+            <div className="no-categories-img" />
+            <h3 className="no-categories-text">No Food Collection</h3>
+          </div>
         </div>
-        <Pagination
-          totalPosts={filteredCategories.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
-      </div>
+      )}
     </Fragment>
   );
 };

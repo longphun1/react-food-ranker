@@ -89,11 +89,6 @@
           color: #666362;
           display: inline-block;
           font-size: 22px;
-          text-transform: lowercase;
-
-          &::first-letter {
-            text-transform: uppercase;
-          }
 
           &:hover {
             color: #f98b88;
@@ -129,7 +124,7 @@
               cursor: pointer;
               background-color: white;
               border: 1px solid #afacab;
-              border-radius: 4px;
+              border-radius: 8px;
               padding: 4px 5px;
               margin: 0 5px;
 
@@ -145,6 +140,29 @@
               background-color: #36454f;
             }
           }
+        }
+      }
+
+      .no-collection {
+        color: #9b9191;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 80px 0 80px 0;
+      }
+
+      .go-to-add-btn {
+        background-color: white;
+        border: 1px solid black;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100px;
+        height: 28px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #4c4646;
+          border: none;
+          color: white;
         }
       }
     }
