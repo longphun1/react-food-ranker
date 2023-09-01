@@ -168,3 +168,30 @@
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .view-categories-container {
+    height: 70vh;
+    margin: -5px -20px 0 -20px;
+
+    .go-back-btn-container {
+      margin: -10px 0 70px 5px;
+
+      .go-back-btn {
+        font-size: 30px;
+      }
+    }
+
+    .search-box-container {
+      padding: 0;
+      margin: 0 auto;
+
+      .option-sort-container {
+        .option-sort {
+          height: 20px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

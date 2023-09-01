@@ -1,13 +1,16 @@
 import { useNavigate, Outlet, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { login } from "../../store/user/user.store";
 import "./navigation.styles.scss";
 
 const Navigation = () => {
+  const [toggleOn, setToggleOn] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleToggle = () => setToggleOn(!toggleOn);
 
   const handlerSignOut = async () => {
     await signOutUser();
@@ -38,15 +41,22 @@ const Navigation = () => {
           />
         </Link>
         <div className="nav-links-container">
-          <button className="nav-links" onClick={goToAddFood}>
+          <button className="add-nav-links" onClick={goToAddFood}>
             Add Food
           </button>
-          <button className="nav-links" onClick={goToViewAll}>
-            View All
-          </button>
-          <button className="nav-links" onClick={handlerSignOut}>
-            sign out
-          </button>
+
+          <div className="user-nav-container" id={toggleOn ? "showLinks" : ""}>
+            <div className="user-img" onClick={handleToggle} />
+            <span className="point-up-triangle">&#9650;</span>
+            <div className="links-dropdown-menu">
+              <button className="nav-links" onClick={goToViewAll}>
+                View All
+              </button>
+              <button className="nav-links" onClick={handlerSignOut}>
+                Sign out
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <Outlet />

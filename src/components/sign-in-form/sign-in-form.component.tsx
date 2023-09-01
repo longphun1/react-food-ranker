@@ -20,6 +20,18 @@ const SignInForm = () => {
 
   return (
     <div className="sign-in-container">
+      <div className="logo-container">
+        <img
+          className="logo"
+          src="https://i.imgur.com/0e8nvEL.png"
+          alt="logo"
+        />
+        <img
+          className="logo1"
+          src="https://i.imgur.com/aIz2uJE.png"
+          alt="logo"
+        />
+      </div>
       <Button
         type="button"
         buttonType={BUTTON_TYPE_CLASSES.google}

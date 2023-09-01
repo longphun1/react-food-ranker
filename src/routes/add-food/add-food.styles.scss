@@ -1,5 +1,7 @@
 .add-food-container {
   background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   padding: 5vh 50px 0 50px;
   text-align: center;
   width: 100%;
@@ -81,4 +83,30 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 800px) {
+  .add-food-container {
+    width: 100%;
+    margin: -5px -20px 0 -20px;
+
+    .go-back-btn-container {
+      margin-left: 10px;
+      margin-bottom: 50px;
+
+      .go-back-btn {
+        font-size: 30px;
+      }
+    }
+
+    .add-food-sub-container {
+      .add-food-input-container {
+        width: 45%;
+
+        .add-food-place-input {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }

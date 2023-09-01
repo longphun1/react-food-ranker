@@ -29,19 +29,102 @@
 
   .nav-links-container {
     float: right;
+    height: 150px;
 
-    .nav-links {
+    .add-nav-links {
       background: none;
       border: none;
       border-radius: 10px;
       font-size: 18px;
       height: 30px;
-      margin: 20px;
+      margin: 20px 0 20px 20px;
       width: 100px;
+      vertical-align: top;
 
       &:hover {
         background-color: #f98b88;
         color: white;
+      }
+    }
+
+    .user-nav-container {
+      text-align: center;
+      display: inline-block;
+      width: 150px;
+
+      .point-up-triangle {
+        display: none;
+      }
+
+      .user-img {
+        background-image: url("../../assets/user.png");
+        background-size: contain;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .user-nav-container#showLinks {
+      .point-up-triangle {
+        display: block;
+        color: rgb(44, 53, 57);
+        font-size: 17px;
+        margin-top: -3px;
+      }
+
+      .links-dropdown-menu {
+        background-color: rgb(44, 53, 57);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -5px;
+        position: absolute;
+
+        .nav-links {
+          display: block;
+          background: none;
+          border: none;
+          border-radius: 10px;
+          color: white;
+          font-size: 18px;
+          height: 30px;
+          margin: 10px 25px 10px 25px;
+          width: 100px;
+
+          &:hover {
+            color: #f98b88;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .navigation-container {
+    width: 100%;
+    margin: 12vh -20px 0 -20px;
+    padding: 4% 50px 0 50px;
+
+    .logo-container {
+      width: 100%;
+    }
+
+    .nav-links-container {
+      .user-nav-container {
+        width: 100px;
+
+        .links-dropdown-menu {
+          width: 100px;
+        }
       }
     }
   }

@@ -1,3 +1,22 @@
 .sign-in-container {
-  margin: 0;
+  background-color: rgb(255, 255, 255, 0.9);
+  border-radius: 5px;
+  border: 1px solid #b7ceec;
+  height: 400px;
+  max-width: 360px;
+  padding: 30px 20px 0 20px;
+  text-align: center;
+
+  .logo-container {
+    margin-bottom: 120px;
+
+    .logo {
+      width: 75%;
+      margin-right: 5px;
+    }
+
+    .logo1 {
+      width: 15%;
+    }
+  }
 }
