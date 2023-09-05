@@ -15,7 +15,10 @@ const AddFoodCategory = () => {
   const foodCollectionRef = collection(db, `userFoodCategory/${uid}/foods`);
 
   const capitalizeString = (str: string) => {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLocaleLowerCase();
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
   };
 
   const formik = useFormik({

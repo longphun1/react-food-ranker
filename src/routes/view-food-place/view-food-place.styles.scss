@@ -2,9 +2,9 @@
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  height: 70vh;
+  min-height: 70vh;
   margin: -50px;
-  padding: 6% 50px 0 50px;
+  padding: 6% 50px 50px 50px;
   width: 100%;
 
   #google-map {
@@ -72,6 +72,32 @@
 
     .notes-text {
       margin-left: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .view-place-container {
+    padding-top: 100px;
+    margin-left: -20px;
+
+    #google-map {
+      height: 200px;
+    }
+
+    .view-place-info-container {
+      .view-place-info {
+        font-size: 20px;
+        min-width: 180px;
+
+        .rating {
+          margin-left: 10px;
+        }
+      }
+
+      .food-address {
+        font-size: 18px;
+      }
     }
   }
 }

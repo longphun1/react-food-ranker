@@ -2,7 +2,6 @@
   .food-place-link {
     color: #666362;
     margin: 15px 10px 15px 0;
-    text-transform: capitalize;
     cursor: pointer;
 
     &:hover {
@@ -12,5 +11,11 @@
     .rating {
       margin-left: 5px;
     }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .food-place-link {
+    font-size: 14px;
   }
 }

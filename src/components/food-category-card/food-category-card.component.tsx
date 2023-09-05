@@ -56,7 +56,7 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
         </button>
       </div>
       {foodPlaces.length ? (
-        <Fragment>
+        <div className="food-list-box">
           {sortFoodPlacesBasedOnRating.slice(0, 4).map((food) => {
             return (
               <div key={food.id}>
@@ -64,7 +64,7 @@ const FoodCategoryCard = ({ foodItem }: FoodCategoryCardProps) => {
               </div>
             );
           })}
-        </Fragment>
+        </div>
       ) : (
         <p className="no-collection">No Collection</p>
       )}

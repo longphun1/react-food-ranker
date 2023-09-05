@@ -2,6 +2,8 @@
   display: flex;
   padding: 0 25px 0 25px;
   justify-content: space-between;
+  height: 60px;
+  align-items: center;
 
   .food-place-link {
     color: #666362;
@@ -19,8 +21,7 @@
   }
 
   .menu-btn-container {
-    margin-top: 15px;
-
+    margin-top: -25px;
     .kabob-menu {
       cursor: pointer;
       color: #666362;

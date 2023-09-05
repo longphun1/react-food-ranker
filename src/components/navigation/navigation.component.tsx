@@ -23,6 +23,7 @@ const Navigation = () => {
 
   const goToViewAll = () => {
     navigate("/view/categories/all");
+    setToggleOn(false);
   };
 
   return (

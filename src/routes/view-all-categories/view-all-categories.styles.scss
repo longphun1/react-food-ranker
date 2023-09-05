@@ -24,7 +24,7 @@
   }
 
   .search-box-container {
-    width: 75%;
+    width: 70%;
     padding: 0 50px 0 50px;
     display: flex;
 
@@ -69,8 +69,8 @@
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         color: white;
-        font-size: 30px;
-        height: 80px;
+        font-size: 28px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -171,8 +171,9 @@
 
 @media only screen and (max-width: 800px) {
   .view-categories-container {
-    height: 70vh;
-    margin: -5px -20px 0 -20px;
+    min-height: 70vh;
+    margin: -5px -20px 50px -20px;
+    text-align: center;
 
     .go-back-btn-container {
       margin: -10px 0 70px 5px;
@@ -183,13 +184,36 @@
     }
 
     .search-box-container {
+      width: 100%;
       padding: 0;
       margin: 0 auto;
+      height: 40px;
+      display: inline-block;
 
       .option-sort-container {
+        display: inline;
         .option-sort {
           height: 20px;
           font-size: 15px;
+        }
+      }
+    }
+
+    .view-categories-sub-container {
+      .all-categories-box {
+        min-height: 0px;
+
+        .view-all-cats-title {
+          height: 50px;
+          font-size: 25px;
+        }
+
+        .category-container {
+          height: 60px;
+
+          .foodName {
+            font-size: 20px;
+          }
         }
       }
     }

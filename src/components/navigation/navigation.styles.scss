@@ -29,7 +29,7 @@
 
   .nav-links-container {
     float: right;
-    height: 150px;
+    max-height: 150px;
 
     .add-nav-links {
       background: none;
@@ -108,10 +108,9 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
   .navigation-container {
-    width: 100%;
-    margin: 12vh -20px 0 -20px;
+    margin: 9vh -20px 0 -20px;
     padding: 4% 50px 0 50px;
 
     .logo-container {
@@ -119,6 +118,10 @@
     }
 
     .nav-links-container {
+      position: absolute;
+      right: 0;
+      z-index: 1;
+
       .user-nav-container {
         width: 100px;
 
@@ -126,6 +129,36 @@
           width: 100px;
         }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 651px) and (max-width: 1200px) {
+  .navigation-container {
+    margin-top: 9vh;
+
+    .logo-container {
+      width: 59%;
+    }
+
+    .nav-links-container {
+      width: 38%;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      top: 13vh;
+    }
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 2300px) {
+  .navigation-container {
+    .nav-links-container {
+      width: 38%;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+      top: 11vh;
     }
   }
 }

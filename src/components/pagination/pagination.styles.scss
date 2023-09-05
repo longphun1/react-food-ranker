@@ -21,3 +21,9 @@
     color: #f98b88;
   }
 }
+
+@media only screen and (max-width: 2000px) {
+  .pagination-container {
+    bottom: 30px;
+  }
+}

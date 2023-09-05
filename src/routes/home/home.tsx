@@ -67,6 +67,7 @@ const Home = () => {
           <div className="search-box-container">
             <SearchBox
               className="search-box"
+              id="home"
               onChangeHandler={onSearchChange}
               placeholder="Search Categories"
             />
@@ -75,7 +76,7 @@ const Home = () => {
             <div className="food-categories-container">
               {currentCategories.map((food) => {
                 return (
-                  <div key={food.id} className="something">
+                  <div key={food.id} className="category-card">
                     <FoodCategoryCard foodItem={food} />
                   </div>
                 );
