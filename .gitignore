@@ -7,8 +7,6 @@
 
 .env.local
 
-/public
-
 # testing
 /coverage
 

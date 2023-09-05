@@ -37,7 +37,7 @@ const AddFoodCategory = () => {
   });
 
   const goBackHandler = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (

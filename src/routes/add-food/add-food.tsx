@@ -50,7 +50,7 @@ const AddFood = () => {
   });
 
   const goBackHandler = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   const onPlaceSelect = (place: google.maps.places.PlaceResult) => {

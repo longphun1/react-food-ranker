@@ -96,7 +96,7 @@ const ViewCategory = () => {
   const currentPlaces = filteredPlaces.slice(firstPostIndex, lastPostIndex);
 
   const goBackHandler = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   const goToAdd = () => {

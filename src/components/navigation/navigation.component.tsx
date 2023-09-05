@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className="navigation-container">
-        <Link to="/" className="logo-container">
+        <Link to="/home" className="logo-container">
           <img
             className="logo"
             src="https://i.imgur.com/0e8nvEL.png"
