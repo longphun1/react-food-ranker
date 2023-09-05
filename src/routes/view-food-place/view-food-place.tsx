@@ -28,7 +28,7 @@ const ViewFoodPlace = () => {
 
           const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(
             data.foodAddress
-          )}&key=${process.env.REACT_APP_API_KEY}`;
+          )}&key=AIzaSyDPg7DwR4JqIuUQhe1TNApnj74iRWyYmh8`;
 
           axios
             .get<GoogleGeoCodeResponse>(geocodeUrl)

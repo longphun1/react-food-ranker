@@ -9,7 +9,7 @@ import { persistor, store } from "./store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { LoadScript } from "@react-google-maps/api";
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = "AIzaSyDPg7DwR4JqIuUQhe1TNApnj74iRWyYmh8";
 
 if (!apiKey) {
   throw new Error("Google Maps API key is missing.");
