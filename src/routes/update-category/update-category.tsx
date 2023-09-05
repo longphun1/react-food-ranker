@@ -60,7 +60,7 @@ const UpdateCategory = () => {
   });
 
   const goBackHandler = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (

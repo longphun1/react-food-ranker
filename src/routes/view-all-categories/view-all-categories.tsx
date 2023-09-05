@@ -112,7 +112,7 @@ const ViewCategories = () => {
   };
 
   const goBackHandler = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   const goToViewCategory = (foodName: string, id: string) => {
