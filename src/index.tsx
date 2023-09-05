@@ -23,9 +23,7 @@ root.render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <BrowserRouter>
-          <LoadScript googleMapsApiKey={apiKey} libraries={["places"]}>
-            <App />
-          </LoadScript>
+          <App />
         </BrowserRouter>
       </PersistGate>
     </Provider>
