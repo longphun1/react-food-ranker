@@ -39,23 +39,22 @@ const App = () => {
     <Fragment>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Navigation />}>
-            <Route index element={<Home />} />
-            <Route path="/FoodCategory/add" element={<AddFoodCategory />} />
-            <Route path="/add/:foodName/:id" element={<AddFood />} />
-            <Route
-              path="/view/:foodCategoryID/:foodPlace/:id"
-              element={<ViewFoodPlace />}
-            />
-            <Route
-              path="/update/:foodName/:foodCategoryID/:foodPlace/:id"
-              element={<UpdateFoodPlace />}
-            />
-            <Route path="/view/:foodName/:id/all" element={<ViewCategory />} />
-            <Route path="/view/categories/all" element={<ViewCategories />} />
-            <Route path="/update/:foodName/:id" element={<UpdateCategory />} />
-          </Route>
+
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
+          <Route path="/FoodCategory/add" element={<AddFoodCategory />} />
+          <Route path="/add/:foodName/:id" element={<AddFood />} />
+          <Route
+            path="/view/:foodCategoryID/:foodPlace/:id"
+            element={<ViewFoodPlace />}
+          />
+          <Route
+            path="/update/:foodName/:foodCategoryID/:foodPlace/:id"
+            element={<UpdateFoodPlace />}
+          />
+          <Route path="/view/:foodName/:id/all" element={<ViewCategory />} />
+          <Route path="/view/categories/all" element={<ViewCategories />} />
+          <Route path="/update/:foodName/:id" element={<UpdateCategory />} />
         </Route>
       </Routes>
     </Fragment>

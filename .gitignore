@@ -7,7 +7,7 @@
 
 .env.local
 
-./public/index.html
+/public
 
 # testing
 /coverage
