@@ -46,21 +46,24 @@ const UpdateCategory = () => {
 
   const formik = useFormik({
     initialValues: {
-      foodName: "",
-      foodCuisine: "",
+      foodName: category?.foodName || "",
+      foodCuisine: category?.foodCuisine || "",
     },
+    enableReinitialize: true,
     validationSchema: FoodCategoryValSchema,
     onSubmit: async (values) => {
-      await updateDoc(foodCollectionDoc, {
-        foodName: values.foodName,
-        foodCuisine: values.foodCuisine,
-      });
-      navigate("/");
+      if (formik.isValid) {
+        await updateDoc(foodCollectionDoc, {
+          foodName: values.foodName,
+          foodCuisine: values.foodCuisine,
+        });
+        navigate("/view/categories/all");
+      }
     },
   });
 
   const goBackHandler = () => {
-    navigate("/");
+    navigate("/view/categories/all");
   };
 
   return (
@@ -73,9 +76,15 @@ const UpdateCategory = () => {
       <div className="add-food-category-sub-container">
         <form onSubmit={formik.handleSubmit}>
           <div>
-            {formik.touched.foodName && formik.errors.foodName ? (
-              <div className="error">{formik.errors.foodName}</div>
-            ) : null}
+            <div>
+              <span className="category-label">
+                Name
+                {formik.touched.foodName && formik.errors.foodName ? (
+                  <span className="error">{formik.errors.foodName}</span>
+                ) : null}
+              </span>
+            </div>
+
             <input
               className="add-Food-Category-Input"
               placeholder={"Name: " + category?.foodName}
@@ -83,12 +92,17 @@ const UpdateCategory = () => {
             />
           </div>
           <div>
-            {formik.touched.foodCuisine && formik.errors.foodCuisine ? (
-              <div className="error">{formik.errors.foodCuisine}</div>
-            ) : null}
+            <div>
+              <span className="category-label">
+                Cuisine
+                {formik.touched.foodCuisine && formik.errors.foodCuisine ? (
+                  <span className="error">{formik.errors.foodCuisine}</span>
+                ) : null}
+              </span>
+            </div>
             <input
               className="add-Food-Category-Input"
-              placeholder={"Cuisine Type: " + category?.foodCuisine}
+              placeholder={"Cuisine: " + category?.foodCuisine}
               {...formik.getFieldProps("foodCuisine")}
             />
           </div>

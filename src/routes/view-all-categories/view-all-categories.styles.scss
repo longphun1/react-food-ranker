@@ -123,21 +123,17 @@
             .category-btns {
               cursor: pointer;
               background-color: white;
-              border: 1px solid #afacab;
+              border: 2px solid #afacab;
               border-radius: 8px;
-              padding: 4px 5px;
+              font-weight: bold;
+              padding: 4px 6px;
               margin: 0 5px;
 
               &:hover {
-                border: 1px solid #4863a0;
+                border: 2px solid #36454f;
                 color: rgb(245, 239, 239);
-                background-color: #4863a0;
+                background-color: #36454f;
               }
-            }
-
-            .category-btns#delete:hover {
-              border: 1px solid #36454f;
-              background-color: #36454f;
             }
           }
         }

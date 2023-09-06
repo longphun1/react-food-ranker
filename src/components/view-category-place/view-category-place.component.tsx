@@ -41,19 +41,19 @@ const ViewCategoryPlace = ({
 
   return (
     <div className="view-category-place-container">
-      <h3 className="food-place-link" onClick={goToViewFood}>
+      <h2 className="food-place-link" onClick={goToViewFood}>
         {foodPlace} <span className="rating">{foodRating / 2} &#9733;</span>
-      </h3>
+      </h2>
       <div className="menu-btn-container">
         <div
           className="btns-container"
           id={toggleStates[index!] ? "hidden" : ""}
         >
-          <button className="category-btns" onClick={goToUpdateFood}>
-            Update
+          <button className="place-btns" onClick={goToUpdateFood}>
+            Edit
           </button>
           <button
-            className="category-btns"
+            className="place-btns"
             id="delete"
             onClick={() => {
               deleteFoodPlace(id);

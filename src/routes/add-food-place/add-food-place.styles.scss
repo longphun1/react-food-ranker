@@ -8,6 +8,22 @@
   height: 60vh;
   margin-left: -50px;
 
+  .go-back-btn-container {
+    margin-left: 80px;
+
+    .go-back-btn {
+      cursor: pointer;
+      color: #666362;
+      font-size: 45px;
+      font-weight: bold;
+      float: left;
+
+      &:hover {
+        color: #f98b88;
+      }
+    }
+  }
+
   .add-food-sub-container {
     margin-top: 100px;
 
@@ -15,6 +31,18 @@
       display: inline-block;
       width: 30%;
       margin: 2%;
+
+      .place-label {
+        font-size: 18px;
+        font-style: italic;
+      }
+
+      .error {
+        display: inline-block;
+        color: #f75d59;
+        font-size: 16px;
+        margin-left: 8px;
+      }
 
       .add-food-place-input {
         font-size: 20px;
@@ -25,20 +53,13 @@
         border-radius: 3px;
         border: none;
         border-bottom: 1px solid rgb(144, 141, 141);
-        margin-bottom: 20px;
-        caret-color: transparent;
+        margin: 10px 0 20px 0;
 
         &:hover {
           background-color: rgb(249, 139, 136, 0.7);
           border-radius: 10px;
         }
       }
-    }
-
-    .error {
-      color: #f75d59;
-      font-size: 15px;
-      margin-bottom: 10px;
     }
 
     .add-food-place-btn {
@@ -54,22 +75,6 @@
         background-color: #484444;
         border: none;
         color: white;
-      }
-    }
-  }
-
-  .go-back-btn-container {
-    margin-left: 80px;
-
-    .go-back-btn {
-      cursor: pointer;
-      color: #666362;
-      font-size: 45px;
-      font-weight: bold;
-      float: left;
-
-      &:hover {
-        color: #f98b88;
       }
     }
   }

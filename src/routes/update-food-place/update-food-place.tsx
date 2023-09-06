@@ -19,8 +19,6 @@ const UpdateFoodPlace = () => {
   const { foodName } = useParams();
   const { foodCategoryID } = useParams();
 
-  // let food: any = "";
-
   const foodPlaceDoc = doc(db, `foodCategory/${foodCategoryID}/places/${id}`);
 
   useEffect(() => {
@@ -40,22 +38,17 @@ const UpdateFoodPlace = () => {
     getFoodPlace();
   }, []);
 
-  // foodPlaces.forEach((foodPlace) => {
-  //   if (foodPlace.id === id) {
-  //     food = foodPlace;
-  //   }
-  // });
-
   const formik = useFormik({
     initialValues: {
-      foodPlace: "",
-      foodPlaceItemName: "",
-      foodPlaceItemPrice: "",
-      foodAddress: "",
-      foodRating: "",
-      foodNote: "",
+      foodPlace: foodPlace?.foodPlace,
+      foodPlaceItemName: foodPlace?.foodPlaceItemName,
+      foodPlaceItemPrice: foodPlace?.foodPlaceItemPrice,
+      foodAddress: foodPlace?.foodAddress,
+      foodRating: foodPlace?.foodRating,
+      foodNote: foodPlace?.foodNote || "No notes",
       foodRecommendationCount: 0,
     },
+    enableReinitialize: true,
     validationSchema: FoodPlaceValSchema,
     onSubmit: async (values) => {
       await updateDoc(foodPlaceDoc, {
@@ -90,9 +83,14 @@ const UpdateFoodPlace = () => {
         <div className="add-food-sub-container">
           <form onSubmit={formik.handleSubmit}>
             <div className="add-food-input-container">
-              {formik.touched.foodPlace && formik.errors.foodPlace ? (
-                <div className="error">{formik.errors.foodPlace}</div>
-              ) : null}
+              <div>
+                <span className="place-label">
+                  Food Place{" "}
+                  {formik.touched.foodPlace && formik.errors.foodPlace ? (
+                    <div className="error">{formik.errors.foodPlace}</div>
+                  ) : null}
+                </span>
+              </div>
               <input
                 className="add-food-place-input"
                 placeholder={"Name: " + foodPlace?.foodPlace}
@@ -100,10 +98,18 @@ const UpdateFoodPlace = () => {
               />
             </div>
             <div className="add-food-input-container">
-              {formik.touched.foodPlaceItemName &&
-              formik.errors.foodPlaceItemName ? (
-                <div className="error">{formik.errors.foodPlaceItemName}</div>
-              ) : null}
+              <div>
+                <span className="place-label">
+                  Item Name{" "}
+                  {formik.touched.foodPlaceItemName &&
+                  formik.errors.foodPlaceItemName ? (
+                    <div className="error">
+                      {formik.errors.foodPlaceItemName}
+                    </div>
+                  ) : null}
+                </span>
+              </div>
+
               <input
                 className="add-food-place-input"
                 placeholder={"Item: " + foodPlace?.foodPlaceItemName}
@@ -111,10 +117,18 @@ const UpdateFoodPlace = () => {
               />
             </div>
             <div className="add-food-input-container">
-              {formik.touched.foodPlaceItemPrice &&
-              formik.errors.foodPlaceItemPrice ? (
-                <div className="error">{formik.errors.foodPlaceItemPrice}</div>
-              ) : null}
+              <div>
+                <span className="place-label">
+                  Item Price{" "}
+                  {formik.touched.foodPlaceItemPrice &&
+                  formik.errors.foodPlaceItemPrice ? (
+                    <div className="error">
+                      {formik.errors.foodPlaceItemPrice}
+                    </div>
+                  ) : null}
+                </span>
+              </div>
+
               <input
                 className="add-food-place-input"
                 placeholder={"Price: $" + foodPlace?.foodPlaceItemPrice}
@@ -123,9 +137,15 @@ const UpdateFoodPlace = () => {
               />
             </div>
             <div className="add-food-input-container">
-              {formik.touched.foodAddress && formik.errors.foodAddress ? (
-                <div className="error">{formik.errors.foodAddress}</div>
-              ) : null}
+              <div>
+                <span className="place-label">
+                  Address{" "}
+                  {formik.touched.foodAddress && formik.errors.foodAddress ? (
+                    <div className="error">{formik.errors.foodAddress}</div>
+                  ) : null}
+                </span>
+              </div>
+
               <StandaloneSearchBox
                 onLoad={(searchBox) => {
                   searchBox.addListener("places_changed", () => {
@@ -145,9 +165,15 @@ const UpdateFoodPlace = () => {
               </StandaloneSearchBox>
             </div>
             <div className="add-food-input-container">
-              {formik.touched.foodRating && formik.errors.foodRating ? (
-                <div className="error">{formik.errors.foodRating}</div>
-              ) : null}
+              <div>
+                <span className="place-label">
+                  Rating{" "}
+                  {formik.touched.foodRating && formik.errors.foodRating ? (
+                    <div className="error">{formik.errors.foodRating}</div>
+                  ) : null}
+                </span>
+              </div>
+
               <input
                 className="add-food-place-input"
                 type="number"
@@ -156,6 +182,9 @@ const UpdateFoodPlace = () => {
               />
             </div>
             <div className="add-food-input-container">
+              <div>
+                <span className="place-label">Notes</span>
+              </div>
               <input
                 className="add-food-place-input"
                 placeholder={

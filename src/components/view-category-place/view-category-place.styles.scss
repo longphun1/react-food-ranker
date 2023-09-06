@@ -3,13 +3,12 @@
   padding: 0 25px 0 25px;
   justify-content: space-between;
   height: 60px;
-  align-items: center;
+  margin: auto;
 
   .food-place-link {
+    cursor: pointer;
     color: #666362;
     font-size: 22px;
-    text-transform: capitalize;
-    cursor: pointer;
 
     &:hover {
       color: #f98b88;
@@ -21,7 +20,8 @@
   }
 
   .menu-btn-container {
-    margin-top: -25px;
+    margin-top: 15px;
+
     .kabob-menu {
       cursor: pointer;
       color: #666362;
@@ -38,42 +38,20 @@
       margin-top: 40px;
       margin-right: -20px;
 
-      .category-btns {
+      .place-btns {
         cursor: pointer;
         background-color: white;
-        border: 1px solid #afacab;
-        border-radius: 8px;
-        padding: 4px 5px;
+        border: 2px solid #afacab;
+        border-radius: 5px;
+        font-weight: bold;
+        padding: 4px 6px;
         margin: 0 5px;
 
         &:hover {
-          border: 1px solid #4863a0;
+          border: 2px solid #36454f;
           color: rgb(245, 239, 239);
-          background-color: #4863a0;
+          background-color: #36454f;
         }
-      }
-
-      .category-btns#delete:hover {
-        border: 1px solid #36454f;
-        background-color: #36454f;
-      }
-    }
-  }
-
-  .btns-container {
-    .update-delete-btn {
-      background-color: #666362;
-      border: none;
-      border-radius: 7px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-      height: 35px;
-      width: 70px;
-      margin: 18px 0px 0px 12px;
-
-      &:hover {
-        background-color: #4c4646;
       }
     }
   }

@@ -48,32 +48,29 @@ const ViewFoodPlace = () => {
                 }
               );
 
-              const placeService = new google.maps.places.PlacesService(map);
+              const placeDetailsUrl = `https://maps.googleapis.com/maps/api/place/details/json
+              ?fields=name%2Crating%2Cformatted_phone_number
+              &place_id=${placeId}
+              &key=${process.env.REACT_APP_API_KEY}`;
 
-              const request = {
-                placeId: placeId,
-                fields: [
-                  "name",
-                  "formatted_address",
-                  "place_id",
-                  "geometry",
-                  "opening_hours",
-                  "formatted_phone_number",
-                  "website",
-                  "rating",
-                ],
-              };
+              axios
+                .get(placeDetailsUrl)
+                .then((placeDetailsResponse) => {
+                  if (placeDetailsResponse.data.status !== "OK") {
+                    throw new Error("Could not fetch place details");
+                  }
 
-              placeService.getDetails(request, (place, status) => {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                  const placeDetail = place!.opening_hours;
+                  const placeDetails = placeDetailsResponse.data.result;
+                  const phoneNumber = placeDetails.formatted_phone_number;
 
-                  // Display the opening hours on your page
-                  console.log(placeDetail);
-                } else {
-                  console.error("Place details request failed:", status);
-                }
-              });
+                  // Now you have the phone number
+                  console.log("Phone Number:", phoneNumber);
+
+                  // You can use this phone number as needed
+                })
+                .catch((err) => {
+                  console.error("Error fetching place details:", err);
+                });
 
               const marker = new google.maps.Marker({
                 map: map,

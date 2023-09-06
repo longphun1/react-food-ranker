@@ -27,6 +27,11 @@
   .add-food-category-sub-container {
     padding-top: 8vh;
 
+    .category-label {
+      font-size: 18px;
+      font-style: italic;
+    }
+
     .add-Food-Category-Input {
       font-size: 20px;
       font-weight: bold;
@@ -36,8 +41,7 @@
       border-radius: 3px;
       border: none;
       border-bottom: 1px solid rgb(144, 141, 141);
-      margin-bottom: 20px;
-      caret-color: transparent;
+      margin: 10px 0 20px 0;
 
       &:hover {
         background-color: rgb(249, 139, 136, 0.7);
@@ -47,8 +51,9 @@
 
     .error {
       color: #f75d59;
-      font-size: 15px;
-      margin-bottom: 10px;
+      font-size: 16px;
+
+      margin-left: 8px;
     }
 
     .add-food-category-btn {

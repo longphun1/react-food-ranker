@@ -1,17 +1,15 @@
 import { addDoc, collection } from "firebase/firestore";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { db } from "../../utils/firebase/firebase.utils";
 import { useFormik } from "formik";
 import { FoodPlaceValSchema } from "../../validations/FoodPlaceValidations";
 import { StandaloneSearchBox } from "@react-google-maps/api";
-import "./add-food.styles.scss";
+import "./add-food-place.styles.scss";
 
 const AddFood = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { foodName } = useParams();
 
   const FoodPlaceCollectionRef = collection(db, `foodCategory/${id}/places/`);
 

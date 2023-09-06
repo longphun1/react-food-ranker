@@ -9,7 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase/firebase.utils";
 import AddFoodCategory from "./routes/add-food-category/add-food-category";
 import Navigation from "./components/navigation/navigation.component";
-import AddFood from "./routes/add-food/add-food";
+import AddFood from "./routes/add-food-place/add-food-place";
 import ViewFoodPlace from "./routes/view-food-place/view-food-place";
 import ViewCategory from "./routes/view-category/view-category";
 import UpdateFoodPlace from "./routes/update-food-place/update-food-place";

@@ -177,7 +177,7 @@ const ViewCategories = () => {
                             goToUpdateCategory(category.foodName, category.id)
                           }
                         >
-                          Update
+                          Edit
                         </button>
                         <button
                           className="category-btns"
