@@ -5,11 +5,10 @@
   text-align: center;
   min-height: 69.3vh;
   width: 100%;
-  padding: 8vh 50px 0 50px;
-  margin-left: -50px;
+  padding-top: 8vh;
 
   .go-back-btn-container {
-    margin-left: 80px;
+    margin-left: 10%;
 
     .go-back-btn {
       cursor: pointer;
@@ -52,7 +51,7 @@
   }
 
   .view-category-sub-container {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -62,7 +61,7 @@
       border-radius: 15px;
       margin: 0 auto;
       width: 500px;
-      min-height: 550px;
+      min-height: 450px;
       margin-bottom: 80px;
 
       .foodName-title {
@@ -131,11 +130,11 @@
 @media only screen and (max-width: 800px) {
   .view-category-container {
     min-height: 70vh;
-    margin: -5px -20px 50px -20px;
+    margin: -5px 0px 50px 0px;
     text-align: center;
 
     .go-back-btn-container {
-      margin: -10px 0 70px 5px;
+      margin: -10px 0 70px 30px;
 
       .go-back-btn {
         font-size: 30px;
@@ -161,16 +160,25 @@
     .view-category-sub-container {
       .view-category-box {
         min-height: 400px;
+        width: 90%;
 
         .foodName-title {
-          font-size: 25px;
-          height: 50px;
+          font-size: 20px;
+          height: 40px;
         }
 
         .view-category-place {
-          height: 60px;
+          height: 40px;
         }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1250px) {
+  .view-category-container {
+    .search-box-container {
+      width: 60%;
     }
   }
 }

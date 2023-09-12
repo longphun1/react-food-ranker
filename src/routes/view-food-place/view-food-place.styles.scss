@@ -2,13 +2,12 @@
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  min-height: 70vh;
-  margin: -50px;
-  padding: 6% 50px 50px 50px;
+  min-height: 65vh;
+  padding: 6% 0px 50px 0px;
   width: 100%;
 
   #google-map {
-    width: 100%;
+    width: 95%;
     height: 20rem;
     border: 1px solid #ccc;
     margin: 2rem auto;
@@ -18,85 +17,118 @@
     text-align: center;
   }
 
-  .view-place-info-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  .view-place-sub-container {
+    width: 95%;
+    margin-left: 2.5%;
 
-    .view-place-info {
-      color: #666362;
-      font-size: 22px;
+    .view-place-info-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
 
-      .rating {
-        margin-left: 20px;
+      .view-place-info {
+        color: #666362;
+        font-size: 22px;
+
+        .rating {
+          margin-left: 20px;
+        }
+      }
+
+      .food-address {
+        color: #666362;
       }
     }
 
-    .food-address {
-      color: #666362;
+    .food-item-name-and-price-container {
+      color: #817d7c;
+      margin-top: -20px;
+
+      .food-place-item-name {
+        font-size: 18px;
+
+        .food-item-price {
+          margin-left: 5px;
+        }
+      }
     }
-  }
 
-  .food-item-name-and-price-container {
-    color: #817d7c;
-    margin-top: -20px;
+    .recommendation-container {
+      margin-bottom: 40px;
 
-    .food-place-item-name {
-      font-size: 18px;
+      .recommend-text {
+        display: inline-block;
+        color: #b6b6b4;
+      }
 
-      .food-item-price {
-        margin-left: 5px;
+      .thumbs-up-btn {
+        cursor: pointer;
+        background: none;
+        border: none;
+        margin-left: 15px;
+        font-size: 21px;
+      }
+    }
+
+    .view-place-notes {
+      color: #666362;
+
+      .notes-text {
+        margin-left: 10px;
       }
     }
   }
 
-  .recommendation-container {
-    margin-bottom: 40px;
-
-    .recommend-text {
-      display: inline-block;
-      color: #b6b6b4;
-    }
-
-    .thumbs-up-btn {
-      cursor: pointer;
-      background: none;
-      border: none;
-      margin-left: 15px;
-      font-size: 21px;
-    }
-  }
-
-  .view-place-notes {
-    color: #666362;
-
-    .notes-text {
-      margin-left: 10px;
-    }
+  .no-notes {
+    color: #b6b6b4;
   }
 }
 
 @media only screen and (max-width: 650px) {
   .view-place-container {
-    padding-top: 100px;
-    margin-left: -20px;
+    padding-top: 80px;
 
     #google-map {
       height: 200px;
+      width: 95%;
     }
 
-    .view-place-info-container {
-      .view-place-info {
-        font-size: 20px;
-        min-width: 180px;
+    .view-place-sub-container {
+      .view-place-info-container {
+        .view-place-info {
+          font-size: 18px;
+          min-width: 180px;
 
-        .rating {
-          margin-left: 10px;
+          .rating {
+            margin-left: 10px;
+          }
+        }
+
+        .food-address {
+          font-size: 16px;
         }
       }
 
-      .food-address {
-        font-size: 18px;
+      .food-item-name-and-price-container {
+        .food-place-item-name {
+          font-size: 16px;
+        }
+      }
+
+      .recommendation-container {
+        .recommend-text {
+          font-size: 16px;
+        }
+      }
+
+      .view-place-notes {
+        .notes-text {
+          font-size: 16px;
+        }
+      }
+
+      .no-notes {
+        font-size: 16px;
       }
     }
   }

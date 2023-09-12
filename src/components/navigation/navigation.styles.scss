@@ -5,14 +5,13 @@
   background-color: white;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  padding: 4% 50px 0 50px;
-  margin-left: -50px;
+  padding-top: 4%;
 
   .logo-container {
     display: inline-block;
     width: 600px;
     height: 80px;
-    margin-left: 20px;
+    margin-left: 7%;
 
     .logo {
       width: 70%;
@@ -29,6 +28,7 @@
 
   .nav-links-container {
     float: right;
+    margin-right: 4%;
     max-height: 150px;
 
     .add-nav-links {
@@ -87,6 +87,7 @@
         align-items: center;
         margin-top: -5px;
         position: absolute;
+        width: 150px;
 
         .nav-links {
           display: block;
@@ -110,11 +111,13 @@
 
 @media only screen and (max-width: 650px) {
   .navigation-container {
-    margin: 9vh -20px 0 -20px;
-    padding: 4% 50px 0 50px;
+    padding: 4% 0px 0 0px;
+    width: 100%;
+    text-align: center;
 
     .logo-container {
-      width: 100%;
+      width: 90%;
+      margin-left: 0;
     }
 
     .nav-links-container {
@@ -129,6 +132,23 @@
           width: 100px;
         }
       }
+
+      .user-nav-container#showLinks {
+        .point-up-triangle {
+          font-size: 15px;
+          margin-top: -5px;
+        }
+
+        .links-dropdown-menu {
+          width: 100px;
+
+          .nav-links {
+            font-size: 12px;
+            height: 20px;
+            width: 80px;
+          }
+        }
+      }
     }
   }
 }
@@ -138,7 +158,8 @@
     margin-top: 9vh;
 
     .logo-container {
-      width: 59%;
+      width: 50%;
+      height: 60px;
     }
 
     .nav-links-container {
@@ -147,24 +168,49 @@
       right: 0;
       z-index: 1;
       top: 13vh;
+
+      .user-nav-container#showLinks {
+        .point-up-triangle {
+          font-size: 15px;
+          margin-top: -5px;
+        }
+
+        .links-dropdown-menu {
+          width: 150px;
+
+          .nav-links {
+            font-size: 12px;
+            height: 20px;
+            width: 80px;
+          }
+        }
+      }
     }
   }
 }
 
-@media only screen and (min-width: 1201px) and (max-width: 2300px) {
+@media only screen and (width: 1024px) and (height: 600px) {
   .navigation-container {
     .nav-links-container {
-      width: 38%;
+      top: 18vh;
+    }
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 2100px) {
+  .navigation-container {
+    .nav-links-container {
+      width: 30%;
       position: absolute;
       right: 0;
       z-index: 1;
-      top: 11vh;
+      top: 10vh;
     }
   }
 }
 
 @media only screen and (min-width: 2100px) {
   .navigation-container {
-    margin-top: 4vh;
+    margin-top: 3vh;
   }
 }

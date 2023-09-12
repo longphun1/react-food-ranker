@@ -4,11 +4,10 @@
   border-bottom-right-radius: 15px;
   width: 100%;
   min-height: 69.3vh;
-  padding: 8vh 50px 0 50px;
-  margin-left: -50px;
+  padding-top: 8vh;
 
   .go-back-btn-container {
-    margin-left: 80px;
+    margin-left: 10%;
 
     .go-back-btn {
       cursor: pointer;
@@ -168,11 +167,11 @@
 @media only screen and (max-width: 800px) {
   .view-categories-container {
     min-height: 70vh;
-    margin: -5px -20px 50px -20px;
+    margin: -5px 0px 50px 0px;
     text-align: center;
 
     .go-back-btn-container {
-      margin: -10px 0 70px 5px;
+      margin: -10px 0 70px 30px;
 
       .go-back-btn {
         font-size: 30px;
@@ -197,18 +196,31 @@
 
     .view-categories-sub-container {
       .all-categories-box {
+        width: 90%;
         min-height: 0px;
 
         .view-all-cats-title {
-          height: 50px;
-          font-size: 25px;
+          height: 40px;
+          font-size: 20px;
         }
 
         .category-container {
-          height: 60px;
+          height: 40px;
 
           .foodName {
-            font-size: 20px;
+            font-size: 16px;
+          }
+
+          .menu-btn-container {
+            margin-top: 5px;
+
+            .btns-container#hidden {
+              margin: 5px 20px 0 0;
+
+              .category-btns {
+                font-size: 10px;
+              }
+            }
           }
         }
       }

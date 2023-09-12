@@ -45,7 +45,7 @@ const UpdateFoodPlace = () => {
       foodPlaceItemPrice: foodPlace?.foodPlaceItemPrice,
       foodAddress: foodPlace?.foodAddress,
       foodRating: foodPlace?.foodRating,
-      foodNote: foodPlace?.foodNote || "No notes",
+      foodNote: foodPlace?.foodNote,
       foodRecommendationCount: 0,
     },
     enableReinitialize: true,

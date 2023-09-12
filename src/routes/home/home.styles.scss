@@ -1,12 +1,10 @@
 .home-container {
-  padding: 0 50px 0 50px;
   text-align: center;
   width: 100%;
-  min-height: 70vh;
+  min-height: 65vh;
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  margin-left: -50px;
   display: flex;
   justify-content: center; /* Horizontally center the grid */
   align-items: flex-start;
@@ -38,32 +36,30 @@
 .search-box-container {
   background-color: white;
   width: 100%;
-  padding: 5vh 50px 0 50px;
-  margin-left: -50px;
+  padding-top: 5vh;
 }
 
 .home-container#no-collection {
   min-height: calc(75vh + 30px);
+  width: 100%;
 }
 
 @media only screen and (max-width: 800px) {
   .home-container {
-    margin: -5px -20px 50px -20px;
-    width: calc(100% + 60px);
-    padding: 0 20px 100px 20px;
+    margin: -5px 0px 50px 0px;
+    padding: 0 0px 100px 0px;
 
     .food-categories-container {
       margin-top: 3vh;
       grid-template-columns: repeat(2, 1fr);
-      column-gap: 15px;
+      column-gap: 10px;
       row-gap: 25px;
       width: 100%;
     }
   }
 
   .search-box-container {
-    margin: -5px -20px 0 -20px;
-    padding: 20px 50px 0px 50px;
+    padding-top: 20px;
     height: 120px;
   }
 }

@@ -2,14 +2,13 @@
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  padding: 5vh 50px 0 50px;
+  padding-top: 5vh;
   text-align: center;
   width: 100%;
-  height: 60vh;
-  margin-left: -50px;
+  height: 65vh;
 
   .go-back-btn-container {
-    margin-left: 80px;
+    margin-left: 10%;
 
     .go-back-btn {
       cursor: pointer;
@@ -64,9 +63,9 @@
 
     .add-food-place-btn {
       display: inline-block;
-      height: 30px;
+      height: 35px;
       width: 200px;
-      margin-top: 15px;
+      margin-top: 4%;
       border-radius: 10px;
       border: 2px solid rgb(195, 191, 191);
       font-size: 18px;
@@ -93,10 +92,10 @@ input[type="number"] {
 @media only screen and (max-width: 800px) {
   .add-food-container {
     width: 100%;
-    margin: -5px -20px 0 -20px;
+    margin-top: -5px;
 
     .go-back-btn-container {
-      margin-left: 10px;
+      margin-left: 30px;
       margin-bottom: 50px;
 
       .go-back-btn {
@@ -106,11 +105,22 @@ input[type="number"] {
 
     .add-food-sub-container {
       .add-food-input-container {
-        width: 45%;
+        width: 40%;
+        margin: 5px 15px;
+
+        .place-label {
+          font-size: 14px;
+        }
 
         .add-food-place-input {
-          font-size: 16px;
+          font-size: 14px;
         }
+      }
+
+      .add-food-place-btn {
+        height: 25px;
+        width: 150px;
+        font-size: 14px;
       }
     }
   }
