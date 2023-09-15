@@ -14,17 +14,19 @@ export const BaseButton = styled.button`
   font-family: "Open Sans Condensed";
   font-weight: bolder;
   border: none;
-  border-radius: 3px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+
   &:hover {
     background-color: white;
     color: black;
     border: 1px solid black;
   }
 `;
+
+BaseButton.displayName = "BaseButton";
 
 export const GoogleSignInButton = styled(BaseButton)`
   background-color: #4285f4;
